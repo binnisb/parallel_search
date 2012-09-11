@@ -99,7 +99,7 @@ int main( int argc, const char* argv[] )
   int i;
 
   char* file_name = "../data/file.txt";
-  random_generatior(file_name,4,4);
+  random_generatior(file_name,100000000,10);
 
   //read_file(file_name,"6942264128",100);
 
