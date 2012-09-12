@@ -11,5 +11,8 @@
 *.la
 *.a
 
+# Binary
+bin/
+
 # Datafiles
 data/file.txt
