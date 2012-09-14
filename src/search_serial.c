@@ -58,6 +58,8 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
   for ( i = 0; i < nr_lines; i++ ) {
     pch_id = atoi(strtok(&input_file[i*line_size],"\t\n"));
     pch_seq = strtok(NULL,"\t\n");
+    if (pch_seq == NULL)
+      printf("pch_id:%i",pch_id);
     if ( strcmp(pch_seq, key) == 0){
       if (result_size == result_counter ){
         result_size = result_size + result_size_block;

@@ -41,27 +41,30 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
   // open up file
   //FILE *file;
   //file = fopen(file_name,"r");
-  char line[128]; // line in file
+  char line[line_size]; // line in file
 
 
   int pch_id; // first column in the current line, corresponds to line id
   char* pch_seq; // second column in the current file, corresponds to the seq in this line
 
-  #pragma omp parallel private(pch_id,pch_seq) shared(result,result_counter)     
+  //#pragma omp parallel private(pch_id,pch_seq) shared(result,result_counter)     
   int result_size = result_size_block; // initualized result size
   int *result;
   result = malloc(sizeof(*result)*result_size);
   int result_counter = 0;
-
   int i;
-  #pragma omp for 
+  int key_len = strlen(key); 
+  #pragma omp parallel for private(pch_id,pch_seq,i,line) shared(result,result_counter,result_size,key,result_size_block)
   for ( i = 0; i < nr_lines; i++ ) {
-    pch_id = atoi(strtok(&input_file[i*line_size],"\t\n"));
-    pch_seq = strtok(NULL,"\t\n");
-    if ( strcmp(pch_seq, key) == 0){
-
-      #pragma omp critical
-      {
+    strncpy(line,&input_file[i*line_size],line_size);
+//    pch_id = atoi(strtok(line,"\t\n"));
+//    pch_seq = strtok(NULL,"\t\n");
+//    if (pch_seq == NULL){
+//      printf("pch_id,%i", pch_id);
+//    }
+    //if ( strcmp(pch_seq, key) == 0){
+    line[line_size - 1] = '\0';
+    if ( strcmp(&line[line_size-(key_len+1)], key) == 0){
       if (result_size == result_counter ){
         result_size = result_size + result_size_block;
         result = realloc(result, result_size*sizeof(*result) );
@@ -72,10 +75,8 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
       }
       result[result_counter] = pch_id;  
       result_counter++;
-      }
     }
   }
-
   return result_counter;
 }
 

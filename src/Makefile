@@ -9,6 +9,6 @@ serial: search_serial.c
 data_generator: data_generator.c
 	gcc data_generator.c -O2 -o ../bin/data_generator
 openmp: search_openmp.c
-	gcc search_openmp.c -O2 -o ../bin/search_openmp
+	gcc search_openmp.c -O2 -fopenmp -o ../bin/search_openmp
 
 	
