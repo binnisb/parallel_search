@@ -27,18 +27,20 @@ int ae_load_file_to_memory(const char *filename, char **result)
 	return size;
 }
 
-int read_file(char* file_name, char* key, int result_size_block, int no_lines){
-  //  file_name:   is direction to a data file.
-  //  key:         the search string.
-  //  iresult_size_block: is the block size of the array that 
+int read_file(char* input_file, char* key, int result_size_block, int nr_lines, int line_size){
+  //  input_file:        is direction to a data file.
+  //  key:               the search string.
+  //  result_size_block: is the block size of the array that 
   //                     contains the resutls which contains the id 
   //                     of the mathing data. 
-  // 
+  //  nr_lines:          nr of lines in file. 
+  //  line_sie:          size of line in char
   //
+  // It is assumed that all lines in input_file have the same length.
 
   // open up file
-  FILE *file;
-  file = fopen(file_name,"r");
+  //FILE *file;
+  //file = fopen(file_name,"r");
   char line[128]; // line in file
 
 
@@ -52,8 +54,9 @@ int read_file(char* file_name, char* key, int result_size_block, int no_lines){
   int result_counter = 0;
 
 //  while ( fgets( line, sizeof(line),file) != NULL){
-  for (int i = 0; i < no_lines; i++ ) {
-    pch_id = atoi(strtok(line,"\t\n"));
+  int i;
+  for ( i = 0; i < nr_lines; i++ ) {
+    pch_id = atoi(strtok(&input_file[i*line_size],"\t\n"));
     pch_seq = strtok(NULL,"\t\n");
     if ( strcmp(pch_seq, key) == 0){
       if (result_size == result_counter ){
@@ -68,7 +71,6 @@ int read_file(char* file_name, char* key, int result_size_block, int no_lines){
       result_counter++;
     }
   }
-  fclose(file);
   return result_counter;
 }
 
@@ -78,16 +80,31 @@ int main( int argc, const char* argv[] )
   long start,end;
   double dif;
 
+  //int data_size = 100000000;
+//  int string_size = 6;
+//  int block_size = 1.5*(data_size/pow(10,string_size));
+//  int read_count;
+  char* file_name = "../data/file.txt";
+  char* result;
+  int nr_bytes;
+  nr_bytes = ae_load_file_to_memory(file_name,&result);
+
+  int line_size;
   int i;
-  int data_size = 100000000;
+  for ( i=0 ; i<nr_bytes ; i++ ){
+    if ( result[i]=='\n' ){
+      line_size = i+1;
+      break;   
+    }
+  }
+  
+  // assume that all the lines in the file have the same size
+  int data_size = nr_bytes / line_size;
+
   int string_size = 6;
   int block_size = 1.5*(data_size/pow(10,string_size));
   int read_count;
-  char* file_name = "../data/file.txt";
-  char* result;
-  int no_bytes;
-  no_bytes = ae_load_file_to_memory(file_name,&result);
 
-  read_count = read_file(file_name,"123123",block_size,data_size);
+  read_count = read_file(result,"123123",block_size,data_size,line_size);
   printf("result found: %i\n", read_count);
 }
