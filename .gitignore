@@ -12,7 +12,7 @@
 *.a
 
 # Binary
-bin/
+bin/*
 
 # Datafiles
 data/file.txt
