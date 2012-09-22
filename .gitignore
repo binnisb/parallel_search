@@ -15,5 +15,5 @@
 bin/*
 
 # Datafiles
-data/file.txt
+data/*.txt
 *swp

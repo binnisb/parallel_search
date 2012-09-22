@@ -4,9 +4,9 @@
 #include <math.h>
 #include <omp.h>
 #include <stdlib.h>
-int ae_load_file_to_memory(const char *filename, char **result) 
+long long ae_load_file_to_memory(const char *filename, char **result) 
 { 
-	int size = 0;
+	long long size = 0;
 	FILE *f = fopen(filename, "rb");
 	if (f == NULL) 
 	{ 
@@ -27,7 +27,7 @@ int ae_load_file_to_memory(const char *filename, char **result)
 	return size;
 }
 
-int read_file(char* input_file, char* key, int result_size_block, int nr_lines, int line_size){
+int read_file(char* input_file, char* key, int result_size_block, long long nr_lines, int line_size){
   //  input_file:        is direction to a data file.
   //  key:               the search string.
   //  result_size_block: is the block size of the array that 
@@ -52,7 +52,7 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
   int *result;
   result = malloc(sizeof(*result)*result_size);
   int result_counter = 0;
-  int i;
+  long long i;
   int key_len = strlen(key); 
   #pragma omp parallel for private(pch_id,pch_seq,i,line) shared(result,result_counter,result_size,key,result_size_block)
   for ( i = 0; i < nr_lines; i++ ) {
@@ -77,26 +77,29 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
       result_counter++;
     }
   }
+
   return result_counter;
 }
 
 
 int main( int argc, const char* argv[] )
 {
-  long start,end;
+  double start,end;
   double dif;
-
   //int data_size = 100000000;
 //  int string_size = 6;
 //  int block_size = 1.5*(data_size/pow(10,string_size));
 //  int read_count;
   char* file_name = "../data/file.txt";
   char* result;
-  int nr_bytes;
+  long long nr_bytes;
+  start = omp_get_wtime();
   nr_bytes = ae_load_file_to_memory(file_name,&result);
-
+  end = omp_get_wtime();
+  dif = end-start;
+  printf("LoadFile: %f\n", dif);
   int line_size;
-  int i;
+  long long i;
   for ( i=0 ; i<nr_bytes ; i++ ){
     if ( result[i]=='\n' ){
       line_size = i+1;
@@ -105,12 +108,16 @@ int main( int argc, const char* argv[] )
   }
   
   // assume that all the lines in the file have the same size
-  int data_size = nr_bytes / line_size;
+  long long data_size = nr_bytes / line_size;
 
   int string_size = 6;
   int block_size = 1.5*(data_size/pow(10,string_size));
   int read_count;
-
+  start = omp_get_wtime();
   read_count = read_file(result,"123123",block_size,data_size,line_size);
+  end = omp_get_wtime();
+  dif = end - start;
+  printf("Search: %f\n",dif);
   printf("result found: %i\n", read_count);
+
 }
