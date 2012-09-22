@@ -2,11 +2,10 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
-#include <omp.h>
 #include <stdlib.h>
-int ae_load_file_to_memory(const char *filename, char **result) 
+long long ae_load_file_to_memory(const char *filename, char **result) 
 { 
-	int size = 0;
+	long long size = 0;
 	FILE *f = fopen(filename, "rb");
 	if (f == NULL) 
 	{ 
@@ -27,7 +26,7 @@ int ae_load_file_to_memory(const char *filename, char **result)
 	return size;
 }
 
-int read_file(char* input_file, char* key, int result_size_block, int nr_lines, int line_size){
+int read_file(char* input_file, char* key, int result_size_block, long long nr_lines, int line_size){
   //  input_file:        is direction to a data file.
   //  key:               the search string.
   //  result_size_block: is the block size of the array that 
@@ -41,26 +40,28 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
   // open up file
   //FILE *file;
   //file = fopen(file_name,"r");
-  char line[128]; // line in file
+  char line[line_size]; // line in file
 
 
   int pch_id; // first column in the current line, corresponds to line id
   char* pch_seq; // second column in the current file, corresponds to the seq in this line
 
-  
   int result_size = result_size_block; // initualized result size
   int *result;
   result = malloc(sizeof(*result)*result_size);
   int result_counter = 0;
-
-//  while ( fgets( line, sizeof(line),file) != NULL){
-  int i;
+  long long i;
+  int key_len = strlen(key); 
   for ( i = 0; i < nr_lines; i++ ) {
-    pch_id = atoi(strtok(&input_file[i*line_size],"\t\n"));
-    pch_seq = strtok(NULL,"\t\n");
-    if (pch_seq == NULL)
-      printf("pch_id:%i",pch_id);
-    if ( strcmp(pch_seq, key) == 0){
+    strncpy(line,&input_file[i*line_size],line_size);
+//    pch_id = atoi(strtok(line,"\t\n"));
+//    pch_seq = strtok(NULL,"\t\n");
+//    if (pch_seq == NULL){
+//      printf("pch_id,%i", pch_id);
+//    }
+    //if ( strcmp(pch_seq, key) == 0){
+    line[line_size - 1] = '\0';
+    if ( strcmp(&line[line_size-(key_len+1)], key) == 0){
       if (result_size == result_counter ){
         result_size = result_size + result_size_block;
         result = realloc(result, result_size*sizeof(*result) );
@@ -73,26 +74,27 @@ int read_file(char* input_file, char* key, int result_size_block, int nr_lines, 
       result_counter++;
     }
   }
+
   return result_counter;
 }
 
 
 int main( int argc, const char* argv[] )
 {
-  long start,end;
-  double dif;
-
+  time_t start,end;
   //int data_size = 100000000;
 //  int string_size = 6;
 //  int block_size = 1.5*(data_size/pow(10,string_size));
 //  int read_count;
   char* file_name = "../data/file.txt";
   char* result;
-  int nr_bytes;
+  long long nr_bytes;
+  start = time(NULL);
   nr_bytes = ae_load_file_to_memory(file_name,&result);
-
+  end = time(NULL);
+  printf("load file %f\n",difftime(end,start));
   int line_size;
-  int i;
+  long long i;
   for ( i=0 ; i<nr_bytes ; i++ ){
     if ( result[i]=='\n' ){
       line_size = i+1;
@@ -101,12 +103,15 @@ int main( int argc, const char* argv[] )
   }
   
   // assume that all the lines in the file have the same size
-  int data_size = nr_bytes / line_size;
+  long long data_size = nr_bytes / line_size;
 
   int string_size = 6;
   int block_size = 1.5*(data_size/pow(10,string_size));
   int read_count;
-
+  start = time(NULL);
   read_count = read_file(result,"123123",block_size,data_size,line_size);
+  end = time(NULL);
+  printf("search: %f\n",difftime(end,start));
   printf("result found: %i\n", read_count);
+
 }
