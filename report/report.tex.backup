@@ -1,6 +1,63 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{listings}
+
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{courier}
+  
+  % This is the color used for MATLAB comments below
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0}
+\definecolor{MyPink}{rgb}{1.0,0.0,0.5}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{MyRed}{rgb}{0.8,0.3,0.36}
+% For faster processing, load Matlab syntax for listings
+\lstloadlanguages{C}%
+\lstset{ %
+  language=C,						% the language of the code
+  basicstyle=\footnotesize,         % the size of the fonts that are used for the code
+  numbers=left,                   	% where to put the line-numbers
+  numberstyle=\footnotesize,        % the size of the fonts that are used for the line-numbers
+  stepnumber=1,                   	% the step between two line-numbers. If it's 1, each line 
+                                  	% will be numbered
+  numbersep=5pt,                  	% how far the line-numbers are from the code
+  backgroundcolor=\color{white},    % choose the background color. You must add \usepackage{color}
+  showspaces=false,               	% show spaces adding particular underscores
+  showstringspaces=false,         	%	 underline spaces within strings
+  showtabs=false,                 	% show tabs within strings adding particular underscores
+  frame=single,                   	% adds a frame around the code
+  rulecolor=\color{black},        	% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      	% sets default tabsize to 2 spaces
+  captionpos=b,                   	% sets the caption-position to bottom
+  breaklines=true,                	% sets automatic line breaking
+  breakatwhitespace=true,        	% sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  	% also try caption instead of title
+  numberstyle=\tiny\color{gray},    % line number style
+  keywordstyle=\color{MyDarkGreen},        % keyword style
+  commentstyle=\color{blue},       	% comment style
+  stringstyle=\color{MyPink},       % string literal style
+  escapeinside={\%*}{*)},           % if you want to add a comment within your code
+  morekeywords={0,1,2,3,4,5,6,7,8,9}            	% if you want to add more keywords to the set
+  }
+
+\lstset{
+emph={unsigned,char,double,int},emphstyle=\color{MyDarkGreen},
+emph={[2]if,for,else,while,return},emphstyle={[2]\color{Red}},
+emph={\#include},emphstyle=\color{MyDarkGreen},
+emph={0,1,2,3,4,5,6,7,8,9},emphstyle=\color{MyPink}
+}
+
+
+
+
+
+
+
+
+
 
 % Title Page
 \title{}
@@ -48,11 +105,46 @@ Brynjar Smári Bjarnasson, bsbj@kth.se, 840824-4690 \\
 
 \section{Introduction}
 
+In today's scientific environment the amount of data that is generated is increasing like never before.  
+One consequence of these revolutionary time is the ability to process and work with the data in acceptable time.  
+We plan to look further into one of the most important problem in the data universe which is searching.  
 
 
-\section{OpemMP}
+
+embarrasly parallel
 
 
+\subsection{The data}
+To isolate the main problem and to be able to analyse the results in as derect way as possible we decided to use as simple data as we could think of.
+Anohter benefit of a simple data set is the ability of creating a data with a large number of rows. 
+The data set is a file containing in every line an id and a sequence of six uniform random integers on the interval $[0,9]$.  
+All of the id's and all the sequences of random numbers have the same number of characters so the number of characters in each line is fixed.
+
+Here below we se an example of the data with $1000$ rows.
+\lstinputlisting[language=C]{../data/example_data.txt}  
+The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
+the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 
 
+\section{Theoretical performance estimation}
+
+In theory
+
+\section{Results}
+
+\subsection{OpemMP}
+ 
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%
+%%%%%%  Appendix  
+%%%%%%
+\appendix
+\section{Code}
+%  \subsection{serial code}
+%    \lstinputlisting[language=C]{../src/search_serial.c}
+  \subsection{OpenMP}
+    \lstinputlisting[language=C]{../src/search_openmp.c}   
 \end{document}          

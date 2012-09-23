@@ -105,16 +105,36 @@ Brynjar Smári Bjarnasson, bsbj@kth.se, 840824-4690 \\
 
 \section{Introduction}
 
-The problem of searhing
+In today's scientific environment the amount of data that is generated is increasing like never before.  
+One consequence of these revolutionary time is the ability to process and work with the data in acceptable time.  
+We plan to look further into one of the most important problem in the data universe which is searching.  
+
+
+
+embarrasly parallel
 
 
 \subsection{The data}
-  
-  The
+To isolate the main problem and to be able to analyse the results in as derect way as possible we decided to use as simple data as we could think of.
+Anohter benefit of a simple data set is the ability of creating a data with a large number of rows. 
+The data set is a file containing in every line an id and a sequence of six uniform random integers on the interval $[0,9]$.  
+All of the id's and all the sequences of random numbers have the same number of characters so the number of characters in each line is fixed.
+
+Here below we se an example of the data with $1000$ rows.
+\lstinputlisting[language=C]{../data/example_data.txt}  
+The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
+the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 
 
-\section{OpemMP}
+\section{Theoretical performance estimation}
 
+Since each comparison is idepented we see that the problem of searching is acctually eme
+
+\section{Results}
+
+\subsection{OpemMP}
+ 
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -122,8 +142,9 @@ The problem of searhing
 %%%%%%  Appendix  
 %%%%%%
 \appendix
-
-\lstinputlisting[language=C]{../src/search_serial.c}
-
-
+\section{Code}
+%  \subsection{serial code}
+%    \lstinputlisting[language=C]{../src/search_serial.c}
+  \subsection{OpenMP}
+    \lstinputlisting[language=C]{../src/search_openmp.c}   
 \end{document}          
