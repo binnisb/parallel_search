@@ -1,0 +1,58 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+% Title Page
+\title{}
+\author{}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+
+\textsc{\LARGE Royal Institute of Technology}\\[1.5cm]
+
+\includegraphics[width=0.3\textwidth]{kth_mathematics_rgb.jpg}\\[1cm]
+
+\textsc{\Large Introduction to High-Performance Computing, DN2258 }  %\\ Instructor: Tobias Ryden , \emph{tryd@math.kth.se}}\\[0.5cm]
+
+\hrulefill \\[0.4cm]
+{ \huge \bfseries Final project, parallel search}\\[0.4cm]
+\hrulefill \\[1.5cm]
+
+
+Sindri Magnússon, sindrim@kth.se, 871209-7156 \\
+Brynjar Smári Bjarnasson, bsbj@kth.se, 840824-4690 \\
+
+
+\vfill
+% Bottom of the page
+{\large \today}
+
+\end{center}
+\end{titlepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
+%%%%%%%%%% Report statrs
+%%%%%%%%%%
+\cleardoublepage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+
+
+\section{OpemMP}
+
+
+
+
+\end{document}          
