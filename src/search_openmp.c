@@ -5,7 +5,9 @@
 #include <omp.h>
 #include <stdlib.h>
 long long ae_load_file_to_memory(const char *filename, char **result) 
-{ 
+{
+  //  filename:		path to the file to read
+  //  result:		pointer to character array that contains the content of the file. 
 	long long size = 0;
 	FILE *f = fopen(filename, "rb");
 	if (f == NULL) 
@@ -36,35 +38,24 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
   //  nr_lines:          nr of lines in file. 
   //  line_sie:          size of line in char
   //
-  // It is assumed that all lines in input_file have the same length.
+  // It is assumed that all lines in input_file have the same length and are on the form: "0000001	123123\n" where first is an index and then the search values
 
-  // open up file
-  //FILE *file;
-  //file = fopen(file_name,"r");
   char line[line_size]; // line in file
-
-
-  int pch_id; // first column in the current line, corresponds to line id
-  char* pch_seq; // second column in the current file, corresponds to the seq in this line
-
-  //#pragma omp parallel private(pch_id,pch_seq) shared(result,result_counter)     
+  long long i;
   int result_size = result_size_block; // initualized result size
   int *result;
+  int result_counter;
+  int key_len = strlen(key);
+
   result = malloc(sizeof(*result)*result_size);
-  int result_counter = 0;
-  long long i;
-  int key_len = strlen(key); 
-  #pragma omp parallel for private(pch_id,pch_seq,i,line) shared(result,result_counter,result_size,key,result_size_block)
+  #pragma omp parallel for private(i,line) shared(result,result_counter,result_size,key,result_size_block)
   for ( i = 0; i < nr_lines; i++ ) {
     strncpy(line,&input_file[i*line_size],line_size);
-//    pch_id = atoi(strtok(line,"\t\n"));
-//    pch_seq = strtok(NULL,"\t\n");
-//    if (pch_seq == NULL){
-//      printf("pch_id,%i", pch_id);
-//    }
-    //if ( strcmp(pch_seq, key) == 0){
+    
     line[line_size - 1] = '\0';
+    // line contains a single line from the file. We compare the last part of the line to the search key.
     if ( strcmp(&line[line_size-(key_len+1)], key) == 0){
+      // if we have used all spaces in result_counter we need to reallocate and increase the size.
       if (result_size == result_counter ){
         result_size = result_size + result_size_block;
         result = realloc(result, result_size*sizeof(*result) );
@@ -73,11 +64,11 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
           exit(1);
         }
       }
-      result[result_counter] = pch_id;  
+      // we keep the line number where we found the key
+      result[result_counter] = atoi(strtok(line,"\t\n"));  
       result_counter++;
     }
   }
-
   return result_counter;
 }
 
@@ -86,20 +77,27 @@ int main( int argc, const char* argv[] )
 {
   double start,end;
   double dif;
-  //int data_size = 100000000;
-//  int string_size = 6;
-//  int block_size = 1.5*(data_size/pow(10,string_size));
-//  int read_count;
+  
   char* file_name = "../data/file.txt";
   char* result;
-  long long nr_bytes;
+  char* search_key = "123123";
+
+  long long nr_bytes; 
+  long long i;
+  long long nr_lines;
+
+  int string_size = strlen(search_key);
+  int block_size;
+  int read_count;
+  int line_size;
+ 
   start = omp_get_wtime();
   nr_bytes = ae_load_file_to_memory(file_name,&result);
   end = omp_get_wtime();
   dif = end-start;
   printf("LoadFile: %f\n", dif);
-  int line_size;
-  long long i;
+
+  // assume each line in file is equally long. here we get the line size.
   for ( i=0 ; i<nr_bytes ; i++ ){
     if ( result[i]=='\n' ){
       line_size = i+1;
@@ -107,14 +105,13 @@ int main( int argc, const char* argv[] )
     }
   }
   
-  // assume that all the lines in the file have the same size
-  long long data_size = nr_bytes / line_size;
+  // 
+  nr_lines = nr_bytes / line_size;
 
-  int string_size = 6;
-  int block_size = 1.5*(data_size/pow(10,string_size));
-  int read_count;
+  block_size = 1.5*(nr_lines/pow(20,string_size));
+  read_count;
   start = omp_get_wtime();
-  read_count = read_file(result,"123123",block_size,data_size,line_size);
+  read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   end = omp_get_wtime();
   dif = end - start;
   printf("Search: %f\n",dif);
