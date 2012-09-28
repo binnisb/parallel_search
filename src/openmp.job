@@ -1,0 +1,20 @@
+# The name of the script is myjob
+#PBS -N Parallel-search
+
+# Only 1 hour wall-clock time will be given to this job
+#PBS -l walltime=4:00:00
+
+# Number of cores hosting OpenMP threads
+#PBS -l mppdepth=24
+
+#PBS -e ../result/openmp_error.txt
+#PBS -o ../result/openmp_result.txt
+
+# Change to the work directory
+module swap PrgEnv-pgi PrgEnv-gnu
+cd $PBS_O_WORKDIR
+export OMP_NUM_THREADS=24
+
+# Run the executable named myexe 
+# and write the output into my_output_file
+aprun -n 1 -d 24 ./../bin/search_openmp >> ../result/openmp_output.txt 2>&1

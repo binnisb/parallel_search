@@ -1,6 +1,6 @@
-#!/bin/bash
-set -x
+#!/bin/tcsh
+module load git
 module swap PrgEnv-pgi PrgEnv-gnu
 module load PrgEnv-gnu
-module load git
 
+./run.bash

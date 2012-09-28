@@ -44,7 +44,7 @@ int main( int argc, const char* argv[] )
 
   int i;
 
-  int data_size = 300000000;
+  int data_size = 1000000000;
   int string_size = 6;
   char* file_name = "../data/file.txt";
   random_generatior(file_name,data_size,string_size);
