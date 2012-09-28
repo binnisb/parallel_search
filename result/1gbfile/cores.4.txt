@@ -1,0 +1,60 @@
+cores:	4	run:	1
+LoadFile: 9.303073
+Search: 0.781910
+result found: 103
+Application 1186121 exit codes: 18
+Application 1186121 resources: utime ~3s, stime ~3s
+cores:	4	run:	2
+LoadFile: 7.187742
+Search: 0.781772
+result found: 103
+Application 1186122 exit codes: 18
+Application 1186122 resources: utime ~3s, stime ~3s
+cores:	4	run:	3
+LoadFile: 9.025736
+Search: 0.782126
+result found: 103
+Application 1186123 exit codes: 18
+Application 1186123 resources: utime ~3s, stime ~3s
+cores:	4	run:	4
+LoadFile: 10.566039
+Search: 0.782128
+result found: 103
+Application 1186124 exit codes: 18
+Application 1186124 resources: utime ~3s, stime ~3s
+cores:	4	run:	5
+LoadFile: 10.684574
+Search: 0.782119
+result found: 103
+Application 1186125 exit codes: 18
+Application 1186125 resources: utime ~3s, stime ~3s
+cores:	4	run:	6
+LoadFile: 9.800933
+Search: 0.781953
+result found: 103
+Application 1186126 exit codes: 18
+Application 1186126 resources: utime ~3s, stime ~3s
+cores:	4	run:	7
+LoadFile: 5.368750
+Search: 0.782166
+result found: 103
+Application 1186127 exit codes: 18
+Application 1186127 resources: utime ~3s, stime ~3s
+cores:	4	run:	8
+LoadFile: 5.226791
+Search: 0.781928
+result found: 103
+Application 1186128 exit codes: 18
+Application 1186128 resources: utime ~3s, stime ~3s
+cores:	4	run:	9
+LoadFile: 5.264832
+Search: 0.782011
+result found: 103
+Application 1186129 exit codes: 18
+Application 1186129 resources: utime ~3s, stime ~3s
+cores:	4	run:	10
+LoadFile: 5.425197
+Search: 0.781802
+result found: 103
+Application 1186130 exit codes: 18
+Application 1186130 resources: utime ~3s, stime ~3s
