@@ -1,4 +1,6 @@
 #!/bin/bash
 set -x
-cc data_generator.c -O2 -o ../bin/a
-./../bin/a
+module swap PrgEnv-pgi PrgEnv-gnu
+module load PrgEnv-gnu
+module load git
+
