@@ -2,7 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
-
+\usepackage{caption}
+\usepackage{subcaption}
 
 \usepackage{listings}
 \usepackage[usenames,dvipsnames]{color}
@@ -77,7 +78,7 @@ emph={0,1,2,3,4,5,6,7,8,9},emphstyle=\color{MyPink}
 \textsc{\Large Introduction to High-Performance Computing, DN2258 }  %\\ Instructor: Tobias Ryden , \emph{tryd@math.kth.se}}\\[0.5cm]
 
 \hrulefill \\[0.4cm]
-{ \huge \bfseries Final project, parallel search}\\[0.4cm]
+{ \huge \bfseries Final project, parallel search\\ Draft}\\[0.4cm]
 \hrulefill \\[1.5cm]
 
 
@@ -121,7 +122,7 @@ The data set is a file containing in every line an id and a sequence of six unif
 All of the id's and all the sequences of random numbers have the same number of characters so the number of characters in each line is fixed.
 
 Here below we se an example of the data with $1000$ rows.
-\lstinputlisting[language=C]{../data/example_data.txt}  
+\lstinputlisting[language=C]{example_data.txt}  
 The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
 the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 
@@ -131,15 +132,38 @@ the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 Since each comparison is independent we see that the problem of searching is actually embarrassingly parallel.  
 However we need to read the data file from disk which is a sequential operation.  
 So if we only look at the searching part of the algorithm then we would expect a linear speedup.  
-But if we look at the whole thing and let $P$ be the time percent of the search in the sequential 
-code then from Amdahl's law we expect the speedup on $N$ threads to be:
+But if we look at the whole thing and let $P$ be the time percent of the search in the parallel  
+part then from Amdahl's law we expect the speedup on $N$ threads to be:
 $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
 
 \section{Results}
 
 \subsection{OpemMP}
  
- 
+Some graphics of the result we got.  We have still not been able to run it on Lindgren but these 
+results are from our personal computers.
+
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.6\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../graphics/speedup_all.png}
+                \caption{The red-line is the theoretical speed-up from Ahmads-law, the stars are
+                         show the acctual speed-up.}
+                \label{fig:gull}
+        \end{subfigure}%
+        \\ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.6\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../graphics/speedup_search.png}
+                \caption{Speed up of the search part}
+                \label{fig:tiger}
+        \end{subfigure}
+\end{figure}
+
+
+\subsection{MPI}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
