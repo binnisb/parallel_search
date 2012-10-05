@@ -8,7 +8,7 @@ long long ae_load_file_to_memory(const char *filename,
                                  char       **result, 
                                  int        my_rank, 
                                  int        numprocs, 
-                                 long long  nr_lines
+                                 long long  nr_lines,
                                  int        line_size) 
 {
   //  filename:		path to the file to read
