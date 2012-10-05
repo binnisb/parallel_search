@@ -25,7 +25,7 @@ long long ae_load_file_to_memory(const char *filename,
 		*result = NULL;
 		return -1; // -1 means file opening fail 
 	} 
-	*result = (char *)malloc(line_size);
+	*result = (char *)malloc(line_size*my_size);
         int start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
 	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f+start_read)) 
 	{ 
