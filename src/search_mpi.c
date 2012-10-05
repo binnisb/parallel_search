@@ -35,7 +35,7 @@ long long ae_load_file_to_memory(const char *filename,
 	fclose(f);
 	(*result)[line_size*my_size] = 0;
         printf("proc_id: %i, start_read: %i \n", my_rank, start_read);
-	return size;
+	return line_size*my_size;
 }
 
 int read_file(char* input_file, char* key, int result_size_block, long long nr_lines, int line_size){
