@@ -16,7 +16,7 @@ long long ae_load_file_to_memory(const char *filename,
   //  my_rank:          my rank number
   //  numprocs:         number of processes
 	
-        my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
+        int my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
         
 
 	FILE *f = fopen(filename, "rb");
@@ -26,14 +26,14 @@ long long ae_load_file_to_memory(const char *filename,
 		return -1; // -1 means file opening fail 
 	} 
 	*result = (char *)malloc(line_size);
-        int start_read = my_rank*( nr_lines/numprocs + q/(numprocs-nr_lines%numprocs+1));
+        int start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
 	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f+start_read)) 
 	{ 
 		free(*result);
 		return -2; // -2 means file reading fail 
 	} 
 	fclose(f);
-	(*result)[size] = 0;
+	(*result)[line_size*my_size] = 0;
         printf("proc_id: %i, start_read: %i \n", my_rank, start_read);
 	return size;
 }
@@ -136,7 +136,7 @@ int main( int argc,  char* argv[] )
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
   start = omp_get_wtime();
-  nr_bytes = ae_load_file_to_memory(file_name,&result);
+  nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
   end = omp_get_wtime();
   dif = end-start;
   printf("LoadFile: %f\n", dif);
