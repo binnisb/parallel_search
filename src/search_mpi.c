@@ -109,7 +109,7 @@ int main( int argc, const char* argv[] )
   // Find the line size in byte:
   char * temp_read[1000];
   fread(temp_read,sizeof(char),1000 ,f );
-  strchr( f, '\n');
+  strchr( temp_read, '\n');
   line_size = ftell(f); 
   printf("line size: %i\n",line_size);
 
