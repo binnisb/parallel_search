@@ -3,5 +3,6 @@
 \contentsline {section}{\numberline {2}Theoretical performance estimation}{2}
 \contentsline {section}{\numberline {3}Results}{2}
 \contentsline {subsection}{\numberline {3.1}OpemMP}{2}
-\contentsline {section}{\numberline {A}Code}{2}
-\contentsline {subsection}{\numberline {A.1}OpenMP}{2}
+\contentsline {subsection}{\numberline {3.2}MPI}{4}
+\contentsline {section}{\numberline {A}Code}{4}
+\contentsline {subsection}{\numberline {A.1}OpenMP}{4}

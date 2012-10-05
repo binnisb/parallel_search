@@ -121,19 +121,26 @@ The data set is a file containing in every line an id and a sequence of six unif
 All of the id's and all the sequences of random numbers have the same number of characters so the number of characters in each line is fixed.
 
 Here below we se an example of the data with $1000$ rows.
-\lstinputlisting[language=C]{../data/example_data.txt}  
+\lstinputlisting[language=C]{example_data.txt}  
 The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
 the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 
 
 \section{Theoretical performance estimation}
 
-In theory
+Since each comparison is independent we see that the problem of searching is actually embarrassingly parallel.  
+However we need to read the data file from disk which is a sequential operation.  
+So if we only look at the searching part of the algorithm then we would expect a linear speedup.  
+But if we look at the whole thing and let $P$ be the time percent of the search in the parallel  
+part then from Amdahl's law we expect the speedup on $N$ threads to be:
+$$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
 
 \section{Results}
 
 \subsection{OpemMP}
  
+
+
  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

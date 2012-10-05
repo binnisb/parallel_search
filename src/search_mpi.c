@@ -4,7 +4,7 @@
 #include <time.h>
 #include <math.h>
 #include <stdlib.h>
-long long ae_load_file_to_memory(const char *filename, char **result, int my_rank, int numprocs) 
+long long ae_load_file_to_memory(const char *filename, char **result)//, int my_rank, int numprocs) 
 {
   //  filename:		path to the file to read
   //  result:		pointer to character array that contains the content of the file. 
@@ -95,17 +95,20 @@ int main( int argc, const char* argv[] )
   int read_count;
   int line_size;
 
-
+  // Find file size in bytes:
   long long size = 0;
   FILE *f = fopen(file_name, "rb");
   if (f == NULL)
   {
-    *result = NULL;
     return -1; // -1 means file opening fail 
   }
   fseek(f, 0, SEEK_END);
   size = ftell(f); // number of bytes in file
   fseek(f, 0, SEEK_SET);
+
+  // Find the line size in byte:
+  char * temp_read[1000];
+  fread(temp_read,sizeof(char),1000 ,f );
   strchr( f, '\n');
   line_size = ftell(f); 
   printf("line size: %i\n",line_size);

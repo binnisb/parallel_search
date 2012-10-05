@@ -1,17 +1,13 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.6.19)  23 SEP 2012 14:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.15)  28 SEP 2012 23:12
 entering extended mode
  %&-line parsing enabled.
 **report.tex
 (./report.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
+yphenation, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppers
+orbian, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, load
+ed.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size10.clo
@@ -296,6 +292,26 @@ File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen109
+\captionmargin@=\dimen110
+\captionwidth=\dimen111
+\caption@indent=\dimen112
+\caption@parindent=\dimen113
+\caption@hangindent=\dimen114
+)
+\c@ContinuedFloat=\count96
+Package caption Info: listings package is loaded.
+)
+(/usr/share/texmf-texlive/tex/latex/caption/subcaption.sty
+Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+\c@subfigure=\count97
+\c@subtable=\count98
+)
 (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -318,33 +334,35 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count96
-\scratchdimen=\dimen109
+\scratchcounter=\count99
+\scratchdimen=\dimen115
 \scratchbox=\box28
-\nofMPsegments=\count97
-\nofMParguments=\count98
+\nofMPsegments=\count100
+\nofMParguments=\count101
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count99
-\MPscratchDim=\dimen110
-\MPnumerator=\count100
+\MPscratchCnt=\count102
+\MPscratchDim=\dimen116
+\MPnumerator=\count103
 \everyMPtoPDFconversion=\toks19
 )
-\c@lstlisting=\count101
+\c@lstlisting=\count104
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
  <kth_mathematics_rgb.jpg, id=1, 72.27pt x 72.14955pt>
 File: kth_mathematics_rgb.jpg Graphic file (type jpg)
 
@@ -362,17 +380,26 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-] (../data/example_data.txt) (../src/search_openmp.c
+] (./example_data.txt)
+<../graphics/speedup_all.png, id=14, 578.16pt x 433.62pt>
+File: ../graphics/speedup_all.png Graphic file (type png)
+
+<use ../graphics/speedup_all.png>
+<../graphics/speedup_search.png, id=16, 578.16pt x 433.62pt>
+File: ../graphics/speedup_search.png Graphic file (type png)
+
+<use ../graphics/speedup_search.png> [2] [3 <../graphics/speedup_all.png> <../g
+raphics/speedup_search.png>] (../src/search_openmp.c
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 1.
- (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 1.
-
-[2]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 7.
- (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
@@ -386,15 +413,15 @@ Overfull \hbox (6.50734pt too wide) in paragraph at lines 51--52
 [][][][][][][][][][][][][]  
  []
 
-[3] [4]) [5] (./report.aux) ) 
+[4] [5]) [6] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3381 strings out of 493848
- 43414 string characters out of 1152823
- 233131 words of memory out of 3000000
- 6641 multiletter control sequences out of 15000+50000
- 8490 words of font info for 30 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 31i,6n,40p,248b,1661s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 4391 strings out of 494667
+ 61407 string characters out of 1174474
+ 239291 words of memory out of 3000000
+ 7562 multiletter control sequences out of 15000+50000
+ 8789 words of font info for 31 fonts, out of 3000000 for 9000
+ 289 hyphenation exceptions out of 8191
+ 36i,8n,40p,248b,1661s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
 12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
@@ -405,11 +432,12 @@ public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.
 pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (6 pages, 226832 bytes).
+ive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb>
+Output written on report.pdf (7 pages, 277559 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
