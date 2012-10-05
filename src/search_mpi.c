@@ -135,11 +135,15 @@ int main( int argc,  char* argv[] )
   /* and this processes' rank is */
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
-  start = omp_get_wtime();
+
+  
+  //start = omp_get_wtime();
   nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
-  end = omp_get_wtime();
-  dif = end-start;
-  printf("LoadFile: %f\n", dif);
+  //end = omp_get_wtime();
+  //dif = end-start;
+   //printf("LoadFile: %f\n", dif);
+  MPI_Finalize();
+  exit(0);
 
   // assume each line in file is equally long. here we get the line size.
   for ( i=0 ; i<nr_bytes ; i++ ){
