@@ -110,7 +110,7 @@ int main( int argc, const char* argv[] )
   char temp_read[1000];
   fread(temp_read,sizeof(char),1000 ,f );
   char* pchr = strchr( temp_read, '\n');
-  line_size = pchr-temp_read; 
+  line_size = pchr-temp_read+1; 
   printf("line size: %i\n",line_size);
 
   exit(0);
