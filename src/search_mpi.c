@@ -135,7 +135,7 @@ int main( int argc,  char* argv[] )
   /* and this processes' rank is */
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
-
+  printf("my_rank: %i\n", myid);
   
   //start = omp_get_wtime();
   nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
