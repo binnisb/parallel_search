@@ -84,7 +84,7 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
 }
 
 
-int main( int argc, const char* argv[] )
+int main( int argc,  char* argv[] )
 {
   double start,end;
   double dif;
