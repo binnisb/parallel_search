@@ -97,7 +97,7 @@ int main( int argc, const char* argv[] )
 
 
   long long size = 0;
-  FILE *f = fopen(filename, "rb");
+  FILE *f = fopen(file_name, "rb");
   if (f == NULL)
   {
     *result = NULL;
