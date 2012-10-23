@@ -26,15 +26,22 @@ long long ae_load_file_to_memory(const char *filename,
 		return -1; // -1 means file opening fail 
 	} 
 	*result = (char *)malloc(line_size*my_size);
-        int start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
-	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f+start_read)) 
+        long long start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
+ 
+        printf("rank_nr: %i, start_read: %lli, my_size: %i \n",my_rank,start_read,my_size);
+        fflush(stdout);
+        fseek(f, start_read, SEEK_SET);       
+
+	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f)) 
 	{ 
 		free(*result);
 		return -2; // -2 means file reading fail 
 	} 
 	fclose(f);
+/*
 	(*result)[line_size*my_size] = 0;
-        printf("proc_id: %i, start_read: %i \n", my_rank, start_read);
+*/
+        printf("proc_id: %i, start_read: %lli \n", my_rank, start_read);
 	return line_size*my_size;
 }
 
@@ -59,7 +66,6 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
 
 
   result = malloc(sizeof(*result)*result_size);
-  #pragma omp parallel for private(i,line) shared(result,result_counter,result_size,key,result_size_block)
   for ( i = 0; i < nr_lines; i++ ) {
     strncpy(line,&input_file[i*line_size],line_size);
     
@@ -71,6 +77,7 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
         result_size = result_size + result_size_block;
         result = realloc(result, result_size*sizeof(*result) );
         if (result == NULL){
+          printf("stada: %lli \n",i);
           printf("Error reallocating memory\n");
           exit(1);
         }
@@ -86,6 +93,10 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
 
 int main( int argc,  char* argv[] )
 {
+
+  printf("lol \n");
+
+
   double start,end;
   double dif;
   
@@ -118,12 +129,12 @@ int main( int argc,  char* argv[] )
   fread(temp_read,sizeof(char),1000 ,f );
   char* pchr = strchr( temp_read, '\n');
   line_size = pchr-temp_read+1; 
-  printf("line size: %i\n",line_size);
 
   // get number of lines:
   nr_lines = size/line_size;
 
 
+  printf("lol 2\n");
   // Paralell starts:
   int numprocs; // number of processes
   int myid;     // my rank
@@ -136,33 +147,32 @@ int main( int argc,  char* argv[] )
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
   printf("my_rank: %i, nr of processes: %i \n", myid, numprocs);
-  
+  printf("nr_of_lines: %lli, line_size: %i \n",nr_lines, line_size);  
   //start = omp_get_wtime();
+
   nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
   //end = omp_get_wtime();
   //dif = end-start;
-   //printf("LoadFile: %f\n", dif);
-  MPI_Finalize();
-  exit(0);
+  //printf("LoadFile: %f\n", dif);
 
-  // assume each line in file is equally long. here we get the line size.
-  for ( i=0 ; i<nr_bytes ; i++ ){
-    if ( result[i]=='\n' ){
-      line_size = i+1;
-      break;   
-    }
-  }
+//  MPI_Finalize();
+//  exit(0);
   
   // 
   nr_lines = nr_bytes / line_size;
 
-  block_size = 1.5*(nr_lines/pow(20,string_size));
+  block_size = 1.5*(nr_lines/pow(1,string_size));
   read_count;
-  start = omp_get_wtime();
+  //start = omp_get_wtime();
+
+  printf("result_length: %lli \n",nr_bytes);
+//  MPI_Finalize();
+//  exit(0);
+  printf("block_size: %i \n", block_size);
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
-  end = omp_get_wtime();
-  dif = end - start;
-  printf("Search: %f\n",dif);
+  //end = omp_get_wtime();
+  //dif = end - start;
+  //printf("Search: %f\n",dif);
   printf("result found: %i\n", read_count);
 
   MPI_Finalize();
