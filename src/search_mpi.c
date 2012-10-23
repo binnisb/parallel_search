@@ -60,7 +60,7 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
   long long i;
   int result_size = result_size_block; // initualized result size
   int *result;
-  int result_counter;
+  int result_counter=0;
   int key_len = strlen(key);
 
 
@@ -83,6 +83,7 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
         }
       }
       // we keep the line number where we found the key
+      printf("id: %s\n", line);
       result[result_counter] = atoi(strtok(line,"\t\n"));  
       result_counter++;
     }
