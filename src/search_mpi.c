@@ -16,33 +16,35 @@ long long ae_load_file_to_memory(const char *filename,
   //  my_rank:          my rank number
   //  numprocs:         number of processes
 		
-	long long my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
+  long long my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
         
 
-	FILE *f = fopen(filename, "rb");
-	if (f == NULL) 
-	{ 
-		*result = NULL;
-		return -1; // -1 means file opening fail 
-	} 
-	*result = (char *)malloc(line_size*my_size);
-        long long start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
- 
-        fseek(f, start_read*line_size, SEEK_SET);       
+  FILE *f = fopen(filename, "rb");
+  if (f == NULL) 
+  { 
+    *result = NULL;
+    return -1; // -1 means file opening fail 
+  } 
+  *result = (char *)malloc(line_size*my_size);
+  long long start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
+  fseek(f, start_read*line_size, SEEK_SET);       
 
-	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f)) 
-	{ 
-		free(*result);
-		return -2; // -2 means file reading fail 
-	} 
-	fclose(f);
+  if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f)) 
+  { 
+    free(*result);
+    return -2; // -2 means file reading fail 
+  } 
+  fclose(f);
 
-	//(*result)[line_size*my_size] = 0;
-
-	return line_size*my_size;
+  return line_size*my_size;
 }
 
-int read_file(char* input_file, char* key, int result_size_block, long long nr_lines, int line_size){
+int read_file(char*      input_file, 
+              char*      key, 
+              int        result_size_block, 
+              long long  nr_lines, 
+              int        line_size)
+{
   //  input_file:        is direction to a data file.
   //  key:               the search string.
   //  result_size_block: is the block size of the array that 
@@ -59,8 +61,6 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
   int *result;
   int result_counter=0;
   int key_len = strlen(key);
-
-
 
   result = malloc(sizeof(*result)*result_size);
   for ( i = 0; i < nr_lines; i++ ) {
