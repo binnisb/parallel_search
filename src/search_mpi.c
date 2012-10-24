@@ -28,8 +28,6 @@ long long ae_load_file_to_memory(const char *filename,
 	*result = (char *)malloc(line_size*my_size);
         long long start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
  
-        printf("rank_nr: %i, start_read: %lli, my_size: %i \n",my_rank,start_read,my_size);
-        fflush(stdout);
         fseek(f, start_read*line_size, SEEK_SET);       
 
 	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f)) 
@@ -76,13 +74,11 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
         result_size = result_size + result_size_block;
         result = realloc(result, result_size*sizeof(*result) );
         if (result == NULL){
-          printf("stada: %lli \n",i);
           printf("Error reallocating memory\n");
           exit(1);
         }
       }
       // we keep the line number where we found the key
-      printf("id: %s\n", line);
       result[result_counter] = atoi(strtok(line,"\t\n"));  
       result_counter++;
     }
@@ -120,6 +116,7 @@ int main( int argc,  char* argv[] )
   int block_size; //
   int read_count; // result: number of found elements
   int line_size;  // line size
+  int ierr, sum;
 
   // Find file size in bytes:
   long long size = 0;
@@ -141,25 +138,12 @@ int main( int argc,  char* argv[] )
   // get number of lines:
   nr_lines = size/line_size;
 
-  printf("my_rank: %i, nr of processes: %i \n", myid, numprocs);
-  printf("nr_of_lines: %lli, line_size: %i \n",nr_lines, line_size);  
   //start = omp_get_wtime();
 
   nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
 
   nr_lines = nr_bytes / line_size;
 
-  char line[line_size];
-  //if ( myid == 3 ){
-    int ii;
-    for ( ii=0 ; ii!=nr_lines ; ii++ ){
-      strncpy(line,&result[ii*line_size],line_size);
-      if ( ii==0){
-        printf("my_rank: %i, start: %s \n",myid, line);
-      }
-    }
-    printf("my_rank: %i, end: %s \n",myid, line);
-  //}
   //end = omp_get_wtime();
   //dif = end-start;
   //printf("LoadFile: %f\n", dif);
@@ -173,15 +157,19 @@ int main( int argc,  char* argv[] )
   read_count;
   //start = omp_get_wtime();
 
-  printf("result_length: %lli \n",nr_bytes);
 //  MPI_Finalize();
 //  exit(0);
-  printf("block_size: %i \n", block_size);
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   //end = omp_get_wtime();
   //dif = end - start;
   //printf("Search: %f\n",dif);
   printf("my_rank: %i, result found: %i\n", myid,read_count);
+
+  ierr = MPI_Reduce(&read_count, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+
+  if(myid == 0) {
+    printf("The sum is %i\n", sum);
+  } 
 
   MPI_Finalize();
   return 0;
