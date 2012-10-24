@@ -30,7 +30,7 @@ long long ae_load_file_to_memory(const char *filename,
  
         printf("rank_nr: %i, start_read: %lli, my_size: %i \n",my_rank,start_read,my_size);
         fflush(stdout);
-        fseek(f, start_read, SEEK_SET);       
+        fseek(f, start_read*line_size, SEEK_SET);       
 
 	if ( line_size*my_size != fread(*result, sizeof(char), line_size*my_size, f)) 
 	{ 
@@ -38,10 +38,9 @@ long long ae_load_file_to_memory(const char *filename,
 		return -2; // -2 means file reading fail 
 	} 
 	fclose(f);
-/*
-	(*result)[line_size*my_size] = 0;
-*/
-        printf("proc_id: %i, start_read: %lli \n", my_rank, start_read);
+
+	//(*result)[line_size*my_size] = 0;
+
 	return line_size*my_size;
 }
 
@@ -95,8 +94,16 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
 int main( int argc,  char* argv[] )
 {
 
-  printf("lol \n");
-
+  // Paralell starts:
+  int numprocs; // number of processes
+  int myid;     // my rank
+  MPI_Status stat;
+  /* MPI programs start with MPI_Init; all 'N' processes exist thereafter */
+  MPI_Init(&argc,&argv);
+  /* find out how big the SPMD world is */
+  MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
+  /* and this processes' rank is */
+  MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
   double start,end;
   double dif;
@@ -134,24 +141,25 @@ int main( int argc,  char* argv[] )
   // get number of lines:
   nr_lines = size/line_size;
 
-
-  printf("lol 2\n");
-  // Paralell starts:
-  int numprocs; // number of processes
-  int myid;     // my rank
-  MPI_Status stat;
-  /* MPI programs start with MPI_Init; all 'N' processes exist thereafter */
-  MPI_Init(&argc,&argv);
-  /* find out how big the SPMD world is */
-  MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
-  /* and this processes' rank is */
-  MPI_Comm_rank(MPI_COMM_WORLD,&myid);
-
   printf("my_rank: %i, nr of processes: %i \n", myid, numprocs);
   printf("nr_of_lines: %lli, line_size: %i \n",nr_lines, line_size);  
   //start = omp_get_wtime();
 
   nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
+
+  nr_lines = nr_bytes / line_size;
+
+  char line[line_size];
+  //if ( myid == 3 ){
+    int ii;
+    for ( ii=0 ; ii!=nr_lines ; ii++ ){
+      strncpy(line,&result[ii*line_size],line_size);
+      if ( ii==0){
+        printf("my_rank: %i, start: %s \n",myid, line);
+      }
+    }
+    printf("my_rank: %i, end: %s \n",myid, line);
+  //}
   //end = omp_get_wtime();
   //dif = end-start;
   //printf("LoadFile: %f\n", dif);
@@ -160,7 +168,6 @@ int main( int argc,  char* argv[] )
 //  exit(0);
   
   // 
-  nr_lines = nr_bytes / line_size;
 
   block_size = 1.5*(nr_lines/pow(1,string_size));
   read_count;
@@ -174,7 +181,7 @@ int main( int argc,  char* argv[] )
   //end = omp_get_wtime();
   //dif = end - start;
   //printf("Search: %f\n",dif);
-  printf("result found: %i\n", read_count);
+  printf("my_rank: %i, result found: %i\n", myid,read_count);
 
   MPI_Finalize();
   return 0;
