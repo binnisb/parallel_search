@@ -15,8 +15,8 @@ long long ae_load_file_to_memory(const char *filename,
   //  result:		pointer to character array that contains the content of the file. 
   //  my_rank:          my rank number
   //  numprocs:         number of processes
-	
-        int my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
+		
+	long long my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
         
 
 	FILE *f = fopen(filename, "rb");
@@ -138,33 +138,20 @@ int main( int argc,  char* argv[] )
   // get number of lines:
   nr_lines = size/line_size;
 
-  //start = omp_get_wtime();
-
+  start = MPI_Wtime();
   nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
-
   nr_lines = nr_bytes / line_size;
-
-  //end = omp_get_wtime();
-  //dif = end-start;
-  //printf("LoadFile: %f\n", dif);
-
-//  MPI_Finalize();
-//  exit(0);
-  
-  // 
+  end = MPI_Wtime();
+  dif = end-start;
+  printf("LoadFile: %f\n", dif);
 
   block_size = 1.5*(nr_lines/pow(1,string_size));
-  read_count;
-  //start = omp_get_wtime();
+  start = MPI_Wtime();
 
-//  MPI_Finalize();
-//  exit(0);
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
-  //end = omp_get_wtime();
-  //dif = end - start;
-  //printf("Search: %f\n",dif);
-  printf("my_rank: %i, result found: %i\n", myid,read_count);
-
+  end = MPI_Wtime();
+  dif = end - start;
+  printf("Search: %f\n",dif);
   ierr = MPI_Reduce(&read_count, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
   if(myid == 0) {
