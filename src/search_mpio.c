@@ -21,22 +21,14 @@ long long ae_load_file_to_memory(MPI_File   infile,
   long long my_size = (nr_lines+my_rank)/numprocs; // number of lines the current process will read
         
   *result = (char *)malloc(line_size*my_size);
-  long long start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
-  MPI_File_set_view( infile, start_read, MPI_CHAR, MPI_CHAR, "native", MPI_INFO_NULL );
-
-  //fseek(f, start_read*line_size, SEEK_SET);       
-
+  MPI_Offset start_read = my_rank*( nr_lines/numprocs + my_rank/(numprocs-nr_lines%numprocs+1));
+  //MPI_File_set_view( infile, start_read, MPI_CHAR, MPI_CHAR, "native", MPI_INFO_NULL );
+  MPI_File_seek(infile, start_read*line_size, MPI_SEEK_SET); 
   MPI_File_read( infile, *result, line_size*my_size, MPI_CHAR, &stat );
-  MPI_Offset count;
-  MPI_File_get_size(infile,&count);
-  if ( line_size*my_size != count) 
-  { 
-    free(*result);
-    return -2; // -2 means file reading fail 
-  } 
-  
+
   MPI_File_close(&infile);
 
+  printf("start_read: %lli \n",start_read);
   return line_size*my_size;
 }
 
@@ -82,6 +74,7 @@ int read_file(char*      input_file,
       // we keep the line number where we found the key
       result[result_counter] = atoi(strtok(line,"\t\n"));  
       result_counter++;
+      printf("%s \n",line);
     }
   }
   return result_counter;
@@ -153,17 +146,23 @@ int main( int argc,  char* argv[] )
   start = MPI_Wtime();
   nr_bytes = ae_load_file_to_memory(infile ,&result, myid, numprocs, nr_lines, line_size);
 
-  int ii;
-  for ( ii = 0 ; ii!=40 ; ii++){
-    printf("%c \n", result[ii]);
-  }
-
+  
 
   nr_lines = nr_bytes / line_size;
-  printf("nr_bytes: %lli, nr_lines: %lli, line_size: %i\n",nr_bytes, nr_lines, line_size);
+/*
+  int ii;
+  char line[20];
+  for ( ii=0 ; ii!= nr_lines ; ii++){
+    strncpy(line,&result[ii*line_size],line_size); 
+    if ( ii==0 ){
+      printf("my_rank: %i, first: %s \n",myid,line);
+    }
+  } 
+  printf("my_rank: %i, last: %s \n",myid,line);
+*/
   end = MPI_Wtime();
   dif = end-start;
-  printf("LoadFile: %f\n", dif);
+  //printf("LoadFile: %f\n", dif);
 
   block_size = 1.5*(nr_lines/pow(1,string_size));
   start = MPI_Wtime();
@@ -171,13 +170,14 @@ int main( int argc,  char* argv[] )
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   end = MPI_Wtime();
   dif = end - start;
-  printf("Search: %f\n",dif);
+  //printf("Search: %f\n",dif);
   ierr = MPI_Reduce(&read_count, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
   if(myid == 0) {
     printf("The sum is %i\n", sum);
   } 
 
+//  MPI_File_close(&infile);
   MPI_Finalize();
   return 0;
 
