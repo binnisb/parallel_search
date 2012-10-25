@@ -26,10 +26,9 @@ long long ae_load_file_to_memory(MPI_File   infile,
 
   //fseek(f, start_read*line_size, SEEK_SET);       
 
-  MPI_File_read( infile, &result, line_size*my_size, MPI_CHAR, &stat );
-  int count;
-  MPI_Get_count(&stat, MPI_CHAR, &count  );
-
+  MPI_File_read( infile, *result, line_size*my_size, MPI_CHAR, &stat );
+  MPI_Offset count;
+  MPI_File_get_size(infile,&count);
   if ( line_size*my_size != count) 
   { 
     free(*result);
@@ -130,7 +129,8 @@ int main( int argc,  char* argv[] )
 //  {
 //    return -1; // -1 means file opening fail 
 //  }
-  size = MPI_File_get_size(infile,0); // number of bytes in file
+ 
+  MPI_File_get_size(infile,&size); // number of bytes in file
   // fseek(f, 0, SEEK_SET);
   
 
@@ -149,10 +149,18 @@ int main( int argc,  char* argv[] )
 
   // get number of lines:
   nr_lines = size/line_size;
-
+  
   start = MPI_Wtime();
   nr_bytes = ae_load_file_to_memory(infile ,&result, myid, numprocs, nr_lines, line_size);
+
+  int ii;
+  for ( ii = 0 ; ii!=40 ; ii++){
+    printf("%c \n", result[ii]);
+  }
+
+
   nr_lines = nr_bytes / line_size;
+  printf("nr_bytes: %lli, nr_lines: %lli, line_size: %i\n",nr_bytes, nr_lines, line_size);
   end = MPI_Wtime();
   dif = end-start;
   printf("LoadFile: %f\n", dif);
