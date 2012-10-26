@@ -1,0 +1,70 @@
+cores:	2	run:	1
+LoadFile: 5.205389
+LoadFile: 5.795528
+Search: 2.067134
+Search: 2.052016
+The sum is 134
+Application 1264387 resources: utime ~5s, stime ~5s
+cores:	2	run:	2
+LoadFile: 5.441653
+LoadFile: 5.955900
+Search: 2.063020
+Search: 2.052375
+The sum is 134
+Application 1264392 resources: utime ~5s, stime ~5s
+cores:	2	run:	3
+LoadFile: 5.014955
+LoadFile: 5.793605
+Search: 2.070593
+Search: 2.051975
+The sum is 134
+Application 1264397 resources: utime ~5s, stime ~5s
+cores:	2	run:	4
+LoadFile: 5.200336
+LoadFile: 5.618707
+Search: 2.063401
+Search: 2.052251
+The sum is 134
+Application 1264402 resources: utime ~5s, stime ~5s
+cores:	2	run:	5
+LoadFile: 4.434652
+LoadFile: 5.399392
+Search: 2.070522
+Search: 2.052386
+The sum is 134
+Application 1264408 resources: utime ~5s, stime ~5s
+cores:	2	run:	6
+LoadFile: 5.248975
+LoadFile: 6.052375
+Search: 2.070098
+Search: 2.052444
+The sum is 134
+Application 1264412 resources: utime ~5s, stime ~5s
+cores:	2	run:	7
+LoadFile: 5.482488
+LoadFile: 5.706945
+Search: 2.060566
+Search: 2.053036
+The sum is 134
+Application 1264418 resources: utime ~5s, stime ~5s
+cores:	2	run:	8
+LoadFile: 5.513317
+LoadFile: 5.815931
+Search: 2.059170
+Search: 2.052443
+The sum is 134
+Application 1264423 resources: utime ~5s, stime ~5s
+cores:	2	run:	9
+LoadFile: 4.928934
+LoadFile: 5.629433
+Search: 2.066825
+Search: 2.052644
+The sum is 134
+Application 1264427 resources: utime ~5s, stime ~5s
+cores:	2	run:	10
+LoadFile: 4.867577
+LoadFile: 5.627443
+Search: 2.069558
+Search: 2.052356
+The sum is 134
+Application 1264434 resources: utime ~5s, stime ~5s
