@@ -4,10 +4,12 @@
 #include <math.h>
 #include <omp.h>
 #include <stdlib.h>
-long long ae_load_file_to_memory(const char *filename, char **result) 
+long long ae_load_file_to_memory(const char *filename, 
+                                 char       **result) 
 {
-  //  filename:		path to the file to read
-  //  result:		pointer to character array that contains the content of the file. 
+  //  filename: path to the file to read
+  //  result:   pointer to character array that 
+  //            contains the content of the file. 
 	long long size = 0;
 	FILE *f = fopen(filename, "rb");
 	if (f == NULL) 
@@ -29,7 +31,12 @@ long long ae_load_file_to_memory(const char *filename, char **result)
 	return size;
 }
 
-int read_file(char* input_file, char* key, int result_size_block, long long nr_lines, int line_size){
+int read_file( char*     input_file, 
+               char*     key, 
+               int       result_size_block, 
+               long long nr_lines, 
+               int       line_size)
+{
   //  input_file:        is direction to a data file.
   //  key:               the search string.
   //  result_size_block: is the block size of the array that 

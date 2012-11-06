@@ -17,3 +17,11 @@ bin/*
 # Datafiles
 data/*.txt
 *swp
+
+# Report stuff
+report/report.aux
+report/report.log
+report/report.tex.backup
+report/report.toc
+report/report.tex~
+report/report.pdf

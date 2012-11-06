@@ -29,13 +29,26 @@ for fs in a:
             s.search.append(float(line.split()[1]))
     stats.append(s)
 stats.sort()
-for i in stats:
-    print i.search
+#for i in stats:
+#    print i.search
 figure(1)
-plot([s.id for s in stats],[average(s.search) for s in stats],'o',label='search')
+plot([s.id for s in stats],[average(s.search) for s in stats],'o-',label='search')
 legend()
+xlabel("nr of process")
+ylabel("searching time in seconds")
+
 figure(2)
-plot([s.id for s in stats],[average(s.load) for s in stats],'xr',label='load file')
+plot([s.id for s in stats],[average(s.load) for s in stats],'xr-',label='load file')
 legend()
+xlabel("nr of process")
+ylabel("loading time in seconds")
+
+first_guy = average(stats[0].search)
+figure(3)
+plot([s.id for s in stats],[first_guy/average(s.search) for s in stats],'o-',label='search')
+legend()
+xlabel("nr of process")
+ylabel("speed-up of the search")
+
 
 show()

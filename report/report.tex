@@ -78,7 +78,7 @@ emph={0,1,2,3,4,5,6,7,8,9},emphstyle=\color{MyPink}
 \textsc{\Large Introduction to High-Performance Computing, DN2258 }  %\\ Instructor: Tobias Ryden , \emph{tryd@math.kth.se}}\\[0.5cm]
 
 \hrulefill \\[0.4cm]
-{ \huge \bfseries Final project, parallel search\\ Draft}\\[0.4cm]
+{ \huge \bfseries Final project, parallel search\\ Draft 2}\\[0.4cm]
 \hrulefill \\[1.5cm]
 
 
@@ -126,6 +126,16 @@ Here below we se an example of the data with $1000$ rows.
 The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
 the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 
+\section{Implementation}
+  The final report will contain more stuff here.
+\subsection{OpenMP}
+ 
+\subsection{MPI}
+  
+\subsection{OpenMP and MPI}
+  Plant to check if we can combine the implementations of OpenMP and MPI.
+
+
 
 \section{Theoretical performance estimation}
 
@@ -140,31 +150,79 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
 
 \subsection{OpemMP}
  
-Some graphics of the result we got.  We have still not been able to run it on Lindgren but these 
-results are from our personal computers.
-
-\begin{figure}
+Some graphics of the result we got. These results where obtained from a 17 Gbyte data file.
+\begin{figure}[h!]
         \centering
-        \begin{subfigure}[b]{0.6\textwidth}
+        \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{../graphics/speedup_all.png}
-                \caption{The red-line is the theoretical speed-up from Ahmads-law, the stars are
-                         show the acctual speed-up.}
+                \includegraphics[width=\textwidth]{graphics/openmp_load_data.png}
+                \caption{Running time of the loading time, average of 10 runns}
                 \label{fig:gull}
         \end{subfigure}%
-        \\ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+         %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
           %(or a blank line to force the subfigure onto a new line)
-        \begin{subfigure}[b]{0.6\textwidth}
+\\
+        \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{../graphics/speedup_search.png}
-                \caption{Speed up of the search part}
+                \includegraphics[width=\textwidth]{graphics/openmp_searching_time.png}
+                \caption{Running time of the search, average of 10 runns}
                 \label{fig:tiger}
         \end{subfigure}
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/openmp_search_speedup.png}
+                \caption{Speed-up of the search part, average of 10 runns}
+                \label{fig:a}
+        \end{subfigure}
 \end{figure}
+%\begin{figure}
+%        \centering
+%        \begin{subfigure}[b]{0.6\textwidth}
+%                \centering
+%                \includegraphics[width=\textwidth]{../graphics/speedup_all.png}
+%                \caption{The red-line is the theoretical speed-up from Ahmads-law, the stars are
+%                         show the acctual speed-up.}
+%                \label{fig:gull}
+%        \end{subfigure}%
+%        \\ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+%         %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.6\textwidth}
+%                \centering
+%                \includegraphics[width=\textwidth]{../graphics/speedup_search.png}
+%                \caption{Speed up of the search part}
+%                \label{fig:tiger}
+%        \end{subfigure}
+%\end{figure}
 
 
 \subsection{MPI}
-
+  More results and text to come in the final report.  This graph was optained from 2.1 Gbyte data file.
+  
+\begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/mpio_load_data.png}
+                \caption{Running time of the loading time, average of 10 runns}
+                \label{fig:gull}
+        \end{subfigure}%
+         %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+\\
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/mpio_searching_time.png}
+                \caption{Running time of the search, average of 10 runns}
+                \label{fig:tiger}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/mpi_search_speedup.png}
+                \caption{Speed-up of the search part, average of 10 runns}
+                \label{fig:a}
+        \end{subfigure}
+\end{figure}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%
@@ -176,4 +234,6 @@ results are from our personal computers.
 %    \lstinputlisting[language=C]{../src/search_serial.c}
   \subsection{OpenMP}
     \lstinputlisting[language=C]{../src/search_openmp.c}   
+  \subsection{MPI}
+    \lstinputlisting[language=C]{../src/search_mpio.c} 
 \end{document}          
