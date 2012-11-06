@@ -1,0 +1,20 @@
+cores:	4	run:	1
+LoadFile: 5.897357
+Search: 1.703054
+result found: 134
+Application 1265321 resources: utime ~4s, stime ~4s
+cores:	4	run:	2
+LoadFile: 5.662346
+Search: 1.694525
+result found: 134
+Application 1265322 resources: utime ~4s, stime ~4s
+cores:	4	run:	3
+Application 1265323 exit signals: Interrupt
+Application 1265323 resources: utime ~0s, stime ~4s
+cores:	4	run:	4
+cores:	4	run:	5
+cores:	4	run:	6
+cores:	4	run:	7
+cores:	4	run:	8
+cores:	4	run:	9
+cores:	4	run:	10

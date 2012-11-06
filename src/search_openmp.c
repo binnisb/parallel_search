@@ -116,7 +116,7 @@ int main( int argc, const char* argv[] )
   nr_lines = nr_bytes / line_size;
 
   block_size = 1.5*(nr_lines/pow(20,string_size));
-  read_count;
+  read_count = 0;
   start = omp_get_wtime();
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   end = omp_get_wtime();
