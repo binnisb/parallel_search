@@ -86,7 +86,6 @@ int read_file(char*      input_file,
       // we keep the line number where we found the key
       result[result_counter] = atoi(strtok(line,"\t\n"));  
       result_counter++;
-      printf("%s \n",line);
     }
   }
   return result_counter;
@@ -150,7 +149,7 @@ int main( int argc,  char* argv[] )
   nr_bytes = ae_load_file_to_memory(infile ,&result, myid, numprocs, nr_lines, line_size);
   end = MPI_Wtime();
   dif = end-start;
-  printf("LoadFile: %f\n", dif);  
+  printf("LoadFile core %i: %f\n", myid,  dif);  
 
   // nr of lines in results
   nr_lines = nr_bytes / line_size; 
@@ -162,7 +161,7 @@ int main( int argc,  char* argv[] )
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   end = MPI_Wtime();
   dif = end - start;
-  printf("Search: %f\n",dif);
+  printf("Search core %i: %f\n",myid, dif);
   
   ierr = MPI_Reduce(&read_count, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 

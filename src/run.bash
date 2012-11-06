@@ -1,5 +1,5 @@
 #!/bin/bash
-DIRECTORY=../result/openmp17gb
+DIRECTORY=../result/openmp2gb
 mkdir -p $DIRECTORY
 rm $DIRECTORY/core*
 for i in 24 16 8 4 2 1
@@ -12,3 +12,17 @@ do
     wait
   done
 done
+
+DIRECTORY=../result/mpio2gb
+mkdir -p $DIRECTORY
+rm $DIRECTORY/core*
+for i in 24 16 8 4 2 1
+do
+  for j in {1..10}
+  do
+    echo "cores:        $i      run:    $j" >> $DIRECTORY/cores.$i.txt
+    aprun -n $i ./../bin/search_mpio >> $DIRECTORY/cores.$i.txt
+    wait
+  done
+done
+
