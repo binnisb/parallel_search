@@ -44,7 +44,7 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
   long long i;
   int result_size = result_size_block; // initualized result size
   int *result;
-  int result_counter;
+  int result_counter=0;
   int key_len = strlen(key);
 
   result = malloc(sizeof(*result)*result_size);

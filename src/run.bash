@@ -1,5 +1,5 @@
 #!/bin/bash
-DIRECTORY=../result/openmp2gb
+DIRECTORY=../result/openmp17gb
 mkdir -p $DIRECTORY
 rm $DIRECTORY/core*
 for i in 24 16 8 4 2 1
@@ -13,7 +13,7 @@ do
   done
 done
 
-DIRECTORY=../result/mpio2gb
+DIRECTORY=../result/mpio17gb
 mkdir -p $DIRECTORY
 rm $DIRECTORY/core*
 for i in 24 16 8 4 2 1
