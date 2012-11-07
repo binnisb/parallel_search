@@ -51,7 +51,7 @@ int read_file( char*     input_file,
   long long i;
   int result_size = result_size_block; // initualized result size
   int *result;
-  int result_counter;
+  int result_counter=0;
   int key_len = strlen(key);
 
   result = malloc(sizeof(*result)*result_size);
@@ -102,7 +102,7 @@ int main( int argc, const char* argv[] )
   nr_bytes = ae_load_file_to_memory(file_name,&result);
   end = omp_get_wtime();
   dif = end-start;
-  printf("LoadFile: %f\n", dif);
+  printf("LoadFile core %i: %f\n",omp_get_thread_num(), dif);
 
   // assume each line in file is equally long. here we get the line size.
   for ( i=0 ; i<nr_bytes ; i++ ){
@@ -115,13 +115,13 @@ int main( int argc, const char* argv[] )
   // 
   nr_lines = nr_bytes / line_size;
 
-  block_size = 1.5*(nr_lines/pow(20,string_size));
+  block_size = 1.5*(nr_lines/pow(6,string_size));
   read_count = 0;
   start = omp_get_wtime();
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   end = omp_get_wtime();
   dif = end - start;
-  printf("Search: %f\n",dif);
+  printf("Search core %i: %f\n",omp_get_thread_num(),dif);
   printf("result found: %i\n", read_count);
 
 }

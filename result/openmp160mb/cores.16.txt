@@ -1,0 +1,50 @@
+cores:	16	run:	1
+LoadFile core 0: 0.719468
+Error reallocating memory
+Application 1278970 exit codes: 1
+Application 1278970 resources: utime ~0s, stime ~0s
+cores:	16	run:	2
+LoadFile core 0: 0.743612
+Error reallocating memory
+Application 1278971 exit codes: 1
+Application 1278971 resources: utime ~0s, stime ~0s
+cores:	16	run:	3
+LoadFile core 0: 0.744786
+Error reallocating memory
+Application 1278972 exit codes: 1
+Application 1278972 resources: utime ~0s, stime ~0s
+cores:	16	run:	4
+LoadFile core 0: 0.768767
+Error reallocating memory
+Application 1278973 exit codes: 1
+Application 1278973 resources: utime ~0s, stime ~0s
+cores:	16	run:	5
+LoadFile core 0: 0.800288
+Error reallocating memory
+Application 1278974 exit codes: 1
+Application 1278974 resources: utime ~0s, stime ~0s
+cores:	16	run:	6
+LoadFile core 0: 0.836558
+Error reallocating memory
+Application 1278975 exit codes: 1
+Application 1278975 resources: utime ~0s, stime ~0s
+cores:	16	run:	7
+LoadFile core 0: 0.884381
+Error reallocating memory
+Application 1278976 exit codes: 1
+Application 1278976 resources: utime ~0s, stime ~0s
+cores:	16	run:	8
+LoadFile core 0: 0.871878
+Error reallocating memory
+Application 1278977 exit codes: 1
+Application 1278977 resources: utime ~0s, stime ~0s
+cores:	16	run:	9
+LoadFile core 0: 0.870215
+Error reallocating memory
+Application 1278978 exit codes: 1
+Application 1278978 resources: utime ~0s, stime ~0s
+cores:	16	run:	10
+LoadFile core 0: 0.731817
+Error reallocating memory
+Application 1278979 exit codes: 1
+Application 1278979 resources: utime ~0s, stime ~0s

@@ -1,20 +1,50 @@
 cores:	4	run:	1
-LoadFile: 5.897357
-Search: 1.703054
+LoadFile core 0: 5.386315
+Search core 0: 1.605775
 result found: 134
-Application 1265321 resources: utime ~4s, stime ~4s
+Application 1279452 resources: utime ~4s, stime ~4s
 cores:	4	run:	2
-LoadFile: 5.662346
-Search: 1.694525
+LoadFile core 0: 4.452870
+Search core 0: 1.613521
 result found: 134
-Application 1265322 resources: utime ~4s, stime ~4s
+Application 1279453 resources: utime ~4s, stime ~4s
 cores:	4	run:	3
-Application 1265323 exit signals: Interrupt
-Application 1265323 resources: utime ~0s, stime ~4s
+LoadFile core 0: 5.299819
+Search core 0: 1.606274
+result found: 134
+Application 1279454 resources: utime ~4s, stime ~4s
 cores:	4	run:	4
+LoadFile core 0: 4.365903
+Search core 0: 1.624038
+result found: 134
+Application 1279455 resources: utime ~4s, stime ~4s
 cores:	4	run:	5
+LoadFile core 0: 6.145746
+Search core 0: 1.606316
+result found: 134
+Application 1279456 resources: utime ~4s, stime ~4s
 cores:	4	run:	6
+LoadFile core 0: 5.202835
+Search core 0: 1.608120
+result found: 134
+Application 1279457 resources: utime ~4s, stime ~4s
 cores:	4	run:	7
+LoadFile core 0: 4.316744
+Search core 0: 1.643557
+result found: 134
+Application 1279459 resources: utime ~4s, stime ~4s
 cores:	4	run:	8
+LoadFile core 0: 5.653415
+Search core 0: 1.622041
+result found: 134
+Application 1279460 resources: utime ~4s, stime ~4s
 cores:	4	run:	9
+LoadFile core 0: 4.453880
+Search core 0: 1.614382
+result found: 134
+Application 1279461 resources: utime ~4s, stime ~4s
 cores:	4	run:	10
+LoadFile core 0: 4.705789
+Search core 0: 1.621794
+result found: 134
+Application 1279462 resources: utime ~4s, stime ~4s

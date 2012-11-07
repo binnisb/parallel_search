@@ -1,36 +1,50 @@
 cores:	8	run:	1
-LoadFile: 49.813733
-Search: 6.652868
+LoadFile core 0: 49.133217
+Search core 0: 6.438364
 result found: 983
-Application 1277427 resources: utime ~27s, stime ~36s
+Application 1279703 resources: utime ~27s, stime ~36s
 cores:	8	run:	2
-LoadFile: 54.275794
-Search: 6.664713
+LoadFile core 0: 48.794822
+Search core 0: 6.448772
 result found: 983
-Application 1277431 resources: utime ~28s, stime ~36s
+Application 1279704 resources: utime ~27s, stime ~37s
 cores:	8	run:	3
-LoadFile: 50.413777
-Search: 6.673210
+LoadFile core 0: 51.297025
+Search core 0: 6.434659
 result found: 983
-Application 1277434 resources: utime ~28s, stime ~36s
+Application 1279705 resources: utime ~27s, stime ~37s
 cores:	8	run:	4
-LoadFile: 49.207818
-Search: 6.674641
+LoadFile core 0: 52.913276
+Search core 0: 6.428279
 result found: 983
-Application 1277437 resources: utime ~28s, stime ~36s
+Application 1279706 resources: utime ~27s, stime ~36s
 cores:	8	run:	5
-LoadFile: 52.815300
-Search: 6.660751
+LoadFile core 0: 51.193725
+Search core 0: 6.449573
 result found: 983
-Application 1277439 resources: utime ~28s, stime ~36s
+Application 1279707 resources: utime ~27s, stime ~36s
 cores:	8	run:	6
-LoadFile: 49.336197
-Search: 6.753528
+LoadFile core 0: 61.484676
+Search core 0: 6.434273
 result found: 983
-Application 1277442 resources: utime ~28s, stime ~36s
+Application 1279708 resources: utime ~27s, stime ~36s
 cores:	8	run:	7
-LoadFile: 52.416586
-Search: 6.804203
-result found: 982
-Application 1277444 resources: utime ~27s, stime ~36s
+LoadFile core 0: 51.371688
+Search core 0: 6.452373
+result found: 983
+Application 1279711 resources: utime ~27s, stime ~37s
 cores:	8	run:	8
+LoadFile core 0: 44.057102
+Search core 0: 6.448600
+result found: 983
+Application 1279714 resources: utime ~27s, stime ~36s
+cores:	8	run:	9
+LoadFile core 0: 49.443596
+Search core 0: 6.450201
+result found: 983
+Application 1279715 resources: utime ~27s, stime ~36s
+cores:	8	run:	10
+LoadFile core 0: 55.511935
+Search core 0: 6.435714
+result found: 983
+Application 1279721 resources: utime ~27s, stime ~36s
