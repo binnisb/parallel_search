@@ -4,6 +4,8 @@
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 
 \usepackage{listings}
 \usepackage[usenames,dvipsnames]{color}
@@ -111,13 +113,9 @@ One consequence of these revolutionary time is the ability to process and work w
 We plan to look further into one of the most important problem in the data universe which is searching.  
 
 
-
-embarrasly parallel
-
-
 \subsection{The data}
-To isolate the main problem and to be able to analyse the results in as derect way as possible we decided to use as simple data as we could think of.
-Anohter benefit of a simple data set is the ability of creating a data with a large number of rows. 
+To isolate the main problem and to be able to analyse the results in as direct way as possible we decided to use as simple data as we could think of.
+Another benefit of a simple data set is the ability of creating a data with a large number of rows. 
 The data set is a file containing in every line an id and a sequence of six uniform random integers on the interval $[0,9]$.  
 All of the id's and all the sequences of random numbers have the same number of characters so the number of characters in each line is fixed.
 
@@ -126,53 +124,141 @@ Here below we se an example of the data with $1000$ rows.
 The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
 the file is $17 \times 10^9$ bytes ($17$ Gbyte).
 
+\section{Theoretical performance estimation}
+
+Since each comparison is independent we see that the problem of searching is actually 
+embarrassingly parallel.  
+However we need to read the data file from disk which is a sequential operation.  
+So we can split the problem into two components the parallel part, the search,
+and the sequential part, reading the data.
+We expect to see a linear speed-up for the parallel part and
+no speed-up for the sequential part.
+%So if we only look at the searching part of the algorithm then we would expect a linear speedup.  
+
+We now let $P$ be the time percent of the parallel  
+part, so $1-P$ is the time percent of the sequential part.  
+Then from Amdahl's law we expect the speedup on $N$ threads to be:
+$$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
+
 \section{Implementation}
-  The final report will contain more stuff here.
-\subsection{OpenMP}
- 
-\subsection{MPI}
   
+\subsection{OpenMP}
+
+  The OpenMP implementation is very simple.
+  We first  
+
+\subsection{MPI}
+
+
+  We will use the following notation:
+  \begin{align*}
+    P &= \text{ number of processes} \\
+    p &= \text{ current process}  \\
+    L &= \text{ Nr of lines of data } 
+  \end{align*}
+  and $k:= L (\mod P)$, that is we have $n\in \mathbb{N}$ and integer $k$ with $0\leq k < P$
+  such that $L = Pn+k$.
+
+  For the MPI implementation we use the MPI IO to make each process read part of the data file
+  and then search it's part.  We split the data equally between the process but if
+  P does not divide L evenly then we distribute the remaining elements to the last $k$ processes,
+  that is processes $P-k,P-k+1,\cdots P-1$.
+  
+  The size of the data chunk on process $p$ will then be $n$ if $p<P-k$ and $n+1$ if $p\geq P-k$.
+  That is the same as:
+  \begin{align*}
+    \lfloor \frac{L+p}{P}\rfloor  &= \lfloor \frac{Pn+k+p}{P}\rfloor  \\
+                                  &= \lfloor n+\frac{k+p}{P}\rfloor   \\
+                                  &=                                  
+                                  \left\{
+                                    \begin{array}{l l}
+                                       n   & \quad \text{if $p<P-k$ }\\
+                                       n+1 & \quad \text{if $p\geq P-k$}\\
+                                     \end{array} \right.
+  \end{align*}
+  We split the data elements on the processes so that process $p$ 
+  gets data elements 
+  $p\left( \lfloor \frac{L}{P} \rfloor + \lfloor \frac{p}{P-k+1} \rfloor \right),
+   p\left( \lfloor \frac{L}{P} \rfloor + \lfloor \frac{p}{P-k+1} \rfloor \right)+1, \cdots,
+   (p+1)\left( \lfloor \frac{L}{P} \rfloor + \lfloor \frac{p+1}{P-k+1} \rfloor \right)-1
+  $.
+  That is the first $P-k-1$ processes take the first $\lfloor \frac{L}{P} \rfloor$ elements
+  after and with element $ p \lfloor \frac{L}{P} \rfloor $, process $P-k$ takes the first
+  $\lfloor \frac{L}{P} \rfloor$ elements after and with $ p \lfloor \frac{L}{P} \rfloor $
+  and process $P-k+1,\cdots P-1$ take the first $\lfloor \frac{L}{P} \rfloor+1$elements after and
+  with element $ p \lfloor \frac{L}{P} \rfloor +1 $.
+
+  Then each process searches in it's local data.
+
+  One problem with this approach is that the sequential part of the algortihm, reading the data,
+  might get some negative speed-up since the processes have battltle each other 
+  to be able to read there part of the data from the same file.  Our hope is that
+  tha MPI IO reading methods will take care of that problem to at least some extent.   
+  
+
 \subsection{OpenMP and MPI}
   Plant to check if we can combine the implementations of OpenMP and MPI.
 
 
 
-\section{Theoretical performance estimation}
-
-Since each comparison is independent we see that the problem of searching is actually embarrassingly parallel.  
-However we need to read the data file from disk which is a sequential operation.  
-So if we only look at the searching part of the algorithm then we would expect a linear speedup.  
-But if we look at the whole thing and let $P$ be the time percent of the search in the parallel  
-part then from Amdahl's law we expect the speedup on $N$ threads to be:
-$$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
-
 \section{Results}
 
 \subsection{OpemMP}
  
-Some graphics of the result we got. These results where obtained from a 17 Gbyte data file.
+ We ran our implementation of the openmp search algorithm $10$ times 
+ once for ea.
+ In figure ~\ref{fig:openmp_load} and \ref{fig:openmp_search} we see the
+ the time it takes to read the data and the time to search the data.
+ 
 \begin{figure}[h!]
         \centering
-        \begin{subfigure}[b]{0.48\textwidth}
+        \begin{subfigure}[b]{0.70\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{graphics/openmp_load_data.png}
-                \caption{Running time of the loading time, average of 10 runns}
-                \label{fig:gull}
+                \includegraphics[width=\textwidth]{graphics/openmp17gb/load_time.png}
+                \caption{Running time of sequential part, reading the data. 
+                         We have average of 10 runns and the standard deviation for each number
+                         of processes.}
+                \label{fig:openmp_load}
         \end{subfigure}%
          %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
           %(or a blank line to force the subfigure onto a new line)
-\\
-        \begin{subfigure}[b]{0.48\textwidth}
+        \\
+        \begin{subfigure}[b]{0.70\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{graphics/openmp_searching_time.png}
-                \caption{Running time of the search, average of 10 runns}
-                \label{fig:tiger}
+                \includegraphics[width=\textwidth]{graphics/openmp17gb/search_time.png}
+                \caption{Running time of the parallel part of the code, the acctual search. 
+                         We have average of 10 runns and the standard deviation for each number
+                         of processes (the standard deviation is close to zero so it is hardly 
+                         visible)}
+                \label{fig:openmp_search}
         \end{subfigure}
-        \begin{subfigure}[b]{0.48\textwidth}
+\end{figure}
+
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{graphics/openmp17gb/search_speedup.png}
+  \caption{Here we see the speed up of the experiemnt.}
+  \label{fig:openmp_speedup}
+\end{figure}
+
+\begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.70\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{graphics/openmp_search_speedup.png}
-                \caption{Speed-up of the search part, average of 10 runns}
-                \label{fig:a}
+                \includegraphics[width=\textwidth]{graphics/openmp17gb/Amdahls_law.png}
+                \caption{Here we compair our result with Amdahls law.}
+                \label{fig:openmp_amad1}
+        \end{subfigure}%
+         %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \\
+        \begin{subfigure}[b]{0.70\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/openmp17gb/Amdahls_law2.png}
+                \caption{Here we compair our results with Amdahls law where we have factored in
+                         the diversity in the reading time.}
+                \label{fig:openmp_amad2}
         \end{subfigure}
 \end{figure}
 %\begin{figure}
@@ -194,7 +280,7 @@ Some graphics of the result we got. These results where obtained from a 17 Gbyte
 %        \end{subfigure}
 %\end{figure}
 
-
+\clearpage
 \subsection{MPI}
   More results and text to come in the final report.  This graph was optained from 2.1 Gbyte data file.
   
