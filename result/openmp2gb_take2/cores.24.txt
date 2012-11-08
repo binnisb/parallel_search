@@ -1,0 +1,50 @@
+cores:	24	run:	1
+LoadFile core 0: 11.612882
+Search core 0: 0.345011
+result found: 134
+Application 1282082 resources: utime ~8s, stime ~4s
+cores:	24	run:	2
+LoadFile core 0: 11.046867
+Search core 0: 0.331587
+result found: 134
+Application 1282083 resources: utime ~8s, stime ~4s
+cores:	24	run:	3
+LoadFile core 0: 11.530028
+Search core 0: 0.331594
+result found: 134
+Application 1282084 resources: utime ~8s, stime ~4s
+cores:	24	run:	4
+LoadFile core 0: 9.875065
+Search core 0: 0.349915
+result found: 134
+Application 1282086 resources: utime ~8s, stime ~4s
+cores:	24	run:	5
+LoadFile core 0: 6.262328
+Search core 0: 0.331100
+result found: 134
+Application 1282087 resources: utime ~8s, stime ~4s
+cores:	24	run:	6
+LoadFile core 0: 4.350880
+Search core 0: 0.331321
+result found: 134
+Application 1282088 resources: utime ~8s, stime ~4s
+cores:	24	run:	7
+LoadFile core 0: 4.295479
+Search core 0: 0.331149
+result found: 134
+Application 1282089 resources: utime ~8s, stime ~4s
+cores:	24	run:	8
+LoadFile core 0: 4.342799
+Search core 0: 0.331442
+result found: 134
+Application 1282090 resources: utime ~8s, stime ~4s
+cores:	24	run:	9
+LoadFile core 0: 4.495041
+Search core 0: 0.331121
+result found: 134
+Application 1282092 resources: utime ~8s, stime ~4s
+cores:	24	run:	10
+LoadFile core 0: 4.705963
+Search core 0: 0.331206
+result found: 134
+Application 1282093 resources: utime ~8s, stime ~4s

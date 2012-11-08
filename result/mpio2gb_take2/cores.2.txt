@@ -1,0 +1,70 @@
+cores:        2      run:    1
+LoadFile core 0: 5.881130
+LoadFile core 1: 6.856795
+Search core 0: 1.517855
+Search core 1: 1.493756
+The sum is 134
+Application 1282203 resources: utime ~4s, stime ~5s
+cores:        2      run:    2
+LoadFile core 0: 6.720894
+Search core 0: 1.516722
+LoadFile core 1: 8.425002
+Search core 1: 1.500811
+The sum is 134
+Application 1282204 resources: utime ~5s, stime ~5s
+cores:        2      run:    3
+LoadFile core 0: 5.944277
+LoadFile core 1: 6.499259
+Search core 0: 1.512108
+Search core 1: 1.500636
+The sum is 134
+Application 1282205 resources: utime ~4s, stime ~5s
+cores:        2      run:    4
+LoadFile core 0: 5.646300
+LoadFile core 1: 7.115187
+Search core 0: 1.510664
+Search core 1: 1.492897
+The sum is 134
+Application 1282206 resources: utime ~5s, stime ~5s
+cores:        2      run:    5
+LoadFile core 0: 5.925828
+Search core 0: 1.498304
+LoadFile core 1: 8.429783
+Search core 1: 1.496714
+The sum is 134
+Application 1282207 resources: utime ~6s, stime ~4s
+cores:        2      run:    6
+LoadFile core 0: 7.660751
+LoadFile core 1: 8.375367
+Search core 0: 1.510640
+Search core 1: 1.495117
+The sum is 134
+Application 1282208 resources: utime ~4s, stime ~5s
+cores:        2      run:    7
+LoadFile core 0: 9.448276
+LoadFile core 1: 10.673055
+Search core 0: 1.519588
+Search core 1: 1.502993
+The sum is 134
+Application 1282209 resources: utime ~4s, stime ~5s
+cores:        2      run:    8
+LoadFile core 0: 7.595153
+LoadFile core 1: 8.305016
+Search core 0: 1.510132
+Search core 1: 1.494228
+The sum is 134
+Application 1282210 resources: utime ~4s, stime ~5s
+cores:        2      run:    9
+LoadFile core 0: 9.760483
+LoadFile core 1: 10.912335
+Search core 0: 1.518389
+Search core 1: 1.494907
+The sum is 134
+Application 1282211 resources: utime ~4s, stime ~5s
+cores:        2      run:    10
+LoadFile core 0: 11.949166
+Search core 0: 1.507665
+LoadFile core 1: 13.885118
+Search core 1: 1.493720
+The sum is 134
+Application 1282212 resources: utime ~5s, stime ~4s
