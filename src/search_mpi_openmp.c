@@ -81,7 +81,7 @@ int read_file( char*     input_file,
 }
 
 
-int main( int argc, const char* argv[] )
+int main( int argc, char* argv[] )
 {
   int numprocs;  // number of processes
   int myid;      // my rank
@@ -132,11 +132,13 @@ int main( int argc, const char* argv[] )
 
   //MPI Send Receive
 
-  int *sendcounts = (int *)malloc(numprocs);
-  int *displacement = (int *)malloc(numprocs);
+  int *sendcounts;
+  sendcounts = (int *)malloc(numprocs*sizeof(int));
+  int *displacement;
+  displacement = (int *)malloc(numprocs*sizeof(int));
   char *myresult;
   for (i == 0; i < numprocs; i++) {
-    sendcounts[i] = ((nr_lines+my_rank)/numprocs)*nr_bytes;
+    sendcounts[i] = ((nr_lines+myid)/numprocs)*nr_bytes;
     if (i == 0) {
       displacement[i] = 0;
     }

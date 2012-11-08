@@ -15,4 +15,4 @@ mpi: search_mpi.c
 mpio: search_mpio.c
 	cc search_mpio.c -O2 -o ../bin/search_mpio
 mpi_openmp: search_mpi_openmp.c
-	cc search_mpi_openmp.c -O2 -o ../bin/search_mpi_openmp
+	cc search_mpi_openmp.c -O2 -openmp -o ../bin/search_mpi_openmp
