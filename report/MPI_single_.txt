@@ -1,0 +1,24 @@
+MPI Single read
+Here we have the single root process reading the file and distributing the work on all processes. The same calculations as in #MPI# are used to figure out how many bytes to send to each process.  After reading the file, the root process broadcasts basic information about how many bytes are in the file and how long each line is to all processes. Then we use MPI_Scatterv to distribute the workload to all processes. We hope that we can reduce the reading time compared to the #MPI# method while keeping linear speed-up on the searching part.
+
+Intro 
+revolutionary times
+work with this such big data
+
+The data
+Bæta aftast að við notuðum 1.6Gbyte líka
+
+
+Theoretical performance estimation
+Since eash searching comparison is independent of each other
+
+
+MPI
+
+n denote L/P
+
+Data elements auka s
+
+MPI Single read
+The same approach 
+
