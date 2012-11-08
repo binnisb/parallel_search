@@ -119,7 +119,7 @@ Another benefit of a simple data set is the ability of creating a data with a la
 The data set is a file containing in every line an id and a sequence of six uniform random integers on the interval $[0,9]$.  
 All of the id's and all the sequences of random numbers have the same number of characters so the number of characters in each line is fixed.
 
-Here below we se an example of the data with $1000$ rows.
+Here below we see an example of the data with $10^7$ rows.
 \lstinputlisting[language=C]{example_data.txt}  
 The data we used for testing contains $10^{9}$ lines and each line has $17$ characters.  Since a character is one byte
 the file is $17 \times 10^9$ bytes ($17$ Gbyte).
@@ -145,9 +145,9 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
 \subsection{OpenMP}
 
   
-  The seperation between the sequential and parallel part of the algorithm becomes very clear 
-  for openmp. The reason for that is that first we read the data, sequentialy, and then we
-  split the acctual search up on many threads with a OpenMP parallel for loop.  
+  The separation between the sequential and parallel part of the algorithm becomes very clear 
+  for openmp. The reason for that is that first we read the data, sequentially, and then we
+  split the actual search up on many threads with a OpenMP parallel for loop.  
   
 
 \subsection{MPI}
@@ -160,7 +160,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
     L &= \text{ Nr of lines of data } 
   \end{align*}
   and $k:= L (\mod P)$, that is we have $n\in \mathbb{N}$ and integer $k$ with $0\leq k < P$
-  such that $L = Pn+k$.
+  such that $L = Pn+k$.  We make $n$ denote $\lfloor \frac{P}{L} \rfloor$.
 
   For the MPI implementation we use the MPI IO to make each process read part of the data file
   and then search it's part.  We split the data equally between the process but if
@@ -180,23 +180,22 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
                                      \end{array} \right.
   \end{align*}
   We split the data elements on the processes so that process $p$ 
-  gets data elements 
-  $p\left( \lfloor \frac{L}{P} \rfloor + \lfloor \frac{p}{P-k+1} \rfloor \right),
-   p\left( \lfloor \frac{L}{P} \rfloor + \lfloor \frac{p}{P-k+1} \rfloor \right)+1, \cdots,
-   (p+1)\left( \lfloor \frac{L}{P} \rfloor + \lfloor \frac{p+1}{P-k+1} \rfloor \right)-1
+  gets data elements s
+  $p\left( n + \lfloor \frac{p}{P-k+1} \rfloor \right),
+   p\left( n + \lfloor \frac{p}{P-k+1} \rfloor \right)+1, \cdots,
+   (p+1)\left( n + \lfloor \frac{p+1}{P-k+1} \rfloor \right)-1
   $.
-  That is the first $P-k-1$ processes take the first $\lfloor \frac{L}{P} \rfloor$ elements
-  after and with element $ p \lfloor \frac{L}{P} \rfloor $, process $P-k$ takes the first
-  $\lfloor \frac{L}{P} \rfloor$ elements after and with $ p \lfloor \frac{L}{P} \rfloor $
-  and process $P-k+1,\cdots P-1$ take the first $\lfloor \frac{L}{P} \rfloor+1$elements after and
-  with element $ p \lfloor \frac{L}{P} \rfloor +1 $.
-
+  That process $p$ such that $p<P-k$ takes the first $n$ elements
+  after and with element $ p n $, process $p=P-k$ takes the first
+  $n+1$ elements after and with $ p n $
+  and process $p$ such that $p>P-k$ takes the first $n+1$ elements after and
+  with element $ p n +1 $.
   Then each process searches in it's local data.
 
-  One problem with this approach is that the sequential part of the algortihm, reading the data,
-  might get some negative speed-up since the processes have battltle each other 
+  One problem with this approach is that the sequential part of the algorithm, reading the data,
+  might get some negative speed-up since the processes have battle each other 
   to be able to read there part of the data from the same file.  Our hope is that
-  tha MPI IO reading methods will take care of that problem to at least some extent.   
+  the MPI IO reading methods will take care of that problem, at least to some some extent.   
   
 
 \subsection{OpenMP and MPI}
@@ -208,30 +207,31 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
 
 \subsection{OpemMP}
  
- To examine the performance of our openmp implementation we 
- We ran our implementation of the openmp search algorithm $10$ times for each number
+ To examine the performance of our OpenMP implementation we 
+ We ran our implementation of the OpenMP search algorithm $10$ times for each number
  of threads where the number of threads was $1,2,4,8,16,24$.
  In figure ~\ref{fig:openmp_load} and \ref{fig:openmp_search} we see the
- time it takes to read the data and the time to search the data.
+ time it takes to read the data and the time it takes to search the data.
  The reading operation is a single thread operation and hence it should not differ for 
  different number of threads.  But that is not the case here, if we look at figure \ref{fig:openmp_load}
- we see that the average reading time is around $60$ seconds for all nr. of process exept
+ we see that the average reading time is around $60$ seconds for all nr. of process except
  $1$ process.  The variation is also much more for one thread so there could be some 
  errors in the run for $1$ thread. 
  In figure~\ref{fig:openmp_speedup} we see the speed-up for the search. 
- The speed-up is very close to optimal which is not supprising since the search is embarrassingly
+ The speed-up is very close to optimal which is not surprising since the search is embarrassingly
  parallel.
  In figure \ref{fig:openmp_amad1} we see the actual speed up of the code in comparison to Amdahls law.
  To calculate $P$, the time percent of the parallel part, in Amdahls law we look at the
  average reading time for one thread, $T_s$, and the average search time for one thread, $T_p$.
- Then we set $\frac{T_p}{T_p+T_s}$.  We can see from the figure that Amdahls law misses the speed-up 
- curve completely and estimates some much less speed up than we actually get.
- But the average reading time for one thread was much higer than for when we had higher numbers of 
+ Then we set $P=\frac{T_p}{T_p+T_s}$.  We can see from the figure that Amdahls law misses the speed-up 
+ curve completely and the estimation we get from Amdahls law
+ is much worse than the speed-up we actually get.
+ But the average reading time for one thread was much higher than for when we had higher numbers of 
  threads.  It seemed more like the reading time was close to $60s$ and since the reading
- time dose not depend on number of threds it seems reasonable to fix the reading time as $60s$.
+ time does not depend on number of threads it seems reasonable to fix the reading time as $60s$.
  In figure \ref{fig:openmp_amad2} we see the total speed-up compared to Amdahls law
- when the reading time has been fixed as $60$ seconds.  Now our results agree with Amdals law
- which is not supprising since we got almost perfect speed up for tha parallel part.
+ when the reading time has been fixed to $60$ seconds.  Now our results agree with Amdals law
+ which is not surprising since we got almost perfect speed up for the parallel part.
 
 \begin{figure}[h!t]
         \centering
@@ -249,7 +249,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/openmp17gb/search_time.png}
-                \caption{Running time of the parallel part of the code, the acctual search. 
+                \caption{Running time of the parallel part of the code, the actual search. 
                          We have average of 10 runns and the standard deviation for each number
                          of processes (the standard deviation is close to zero so it is hardly 
                          visible)}
@@ -271,7 +271,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/openmp17gb/Amdahls_law.png}
-                \caption{Here we compair our result with Amdahls law.}
+                \caption{Here we compare our result with Amdahls law.}
                 \label{fig:openmp_amad1}
         \end{subfigure}%
          %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -280,7 +280,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/openmp17gb/Amdahls_law2.png}
-                \caption{Here we compair our results with Amdahls law where we have factored in
+                \caption{Here we compare our results with Amdahls law where we have factored in
                          the diversity in the reading time.}
                 \label{fig:openmp_amad2}
         \end{subfigure}
@@ -293,18 +293,18 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
   For the MPI implementation we did the same experiment as for OpenMP. When we talk about
   reading time and searching time here we mean the reading/searching on the thread that
   took the longest time to read/search.
-  Whith MPI IO we are only able to read int number of bytes, so at maximum $2^{31}-1$ bytes.
-  So we could not read our 17gb file on $1,2,4$ threds, and can at minimum read the file if we
-  split it up in 8  pieces.  So we reduced the 17gb data file down to 2gb to be able to do a full
+  With MPI IO we are only able to read int number of bytes, so at maximum $2^{31}-1$ bytes.
+  So we could not read our 17gb file on $1,2,4$ threads, and can at minimum read the file if we
+  split it up in 8  pieces.  So we need to reduced the 17gb data file down to 2gb to be able to do a full
   speed-up experiment.  We then ran the MPI implementation on the same 17gb data file for 
   $8,16,24$ threads.
 
   In figure~\ref{fig:mpio2_load} and \ref{fig:mpio2_search} we see the reading time and
-  the searching time for the 2gb file.  It seems like the reading time dose not depend
+  the searching time for the 2gb file.  It seems like the reading time does not depend
   on the number of threads so MPI IO seems to be doing a good job scheduling multiple 
-  reads to one file.  If we on the otherhand look at figure \ref{fig:mpio_load}, 
-  the reading time for the 17gb data file, there seems to be a positive corrilation
-  between the number of processes and reading time. If we compair the reading time
+  reads to one file.  If we on the other hand look at figure \ref{fig:mpio_load}, 
+  the reading time for the 17gb data file, there seems to be a positive correlation
+  between the number of processes and reading time. If we compare the reading time
   for MPI to the reading time for OpenMP we see that the reading time
   for MPI is around 100 seconds and the reading time for OpenMP is around 60 seconds.
   
@@ -317,7 +317,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
   the searching time for the 17gb data file.  Since we where not able to run the 17gb file 
   on one process we can not really look into the speed-up.  
   It is reasonable to expect a linear speed-up since this part is embarrassingly parallel.
-  That would give us that it takes around 24 seconds to run the 17gb file on one process.
+  If we assume linear speed-up then it should take around 24 seconds to run the 17gb file on one process.
   This imaginary speed-up is what we see in figure \ref{fig:mpio_speedup}.
 
 \begin{figure}[h!t]
@@ -336,7 +336,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/search_time.png}
-                \caption{Running time of the parallel part of the code, the acctual search. 
+                \caption{Running time of the parallel part of the code, the actual search. 
                          We have average of 10 runns and the standard deviation for each number
                          of processes (the standard deviation is close to zero so it is hardly 
                          visible)}
@@ -357,7 +357,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/Amdahls_law.png}
-                \caption{Here we compair our result with Amdahls law.}
+                \caption{Here we compare our result with Amdahls law.}
                 \label{fig:mpio2_amad1}
         \end{subfigure}%
          %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -366,7 +366,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/Amdahls_law2.png}
-                \caption{Here we compair our results with Amdahls law where we have factored in
+                \caption{Here we compare our results with Amdahls law where we have factored in
                          the diversity in the reading time.}
                 \label{fig:mpio2_amad2}
         \end{subfigure}
@@ -389,7 +389,7 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{graphics/mpio17gb/search_time.png}
-                \caption{Running time of the parallel part of the code, the acctual search. 
+                \caption{Running time of the parallel part of the code, the actual search. 
                          We have average of 10 runns and the standard deviation for each number
                          of processes (the standard deviation is close to zero so it is hardly 
                          visible)}
@@ -405,6 +405,12 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
   \label{fig:mpio_speedup}
 \end{figure}
 \clearpage
+
+\section{Conclusions}
+
+Skrýtið að stuðningur við stór gögn sé slæmur en það á víst að batna í MPI 3
+$P$ to small.
+Fer frá að vera mjög safaríkt djúsí 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%

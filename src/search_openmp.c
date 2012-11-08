@@ -45,7 +45,11 @@ int read_file( char*     input_file,
   //  nr_lines:          nr of lines in file. 
   //  line_sie:          size of line in char
   //
-  // It is assumed that all lines in input_file have the same length and are on the form: "0000001	123123\n" where first is an index and then the search values
+  // It is assumed that all lines in input_file have the same 
+  // length and are on the form: 
+  //    "0000001\t123123\n" 
+  // Where the first integer sequence is the id and the
+  // second sequence is the value.
 
   char line[line_size]; // line in file
   long long i;
@@ -99,6 +103,7 @@ int main( int argc, const char* argv[] )
   int line_size;
  
   start = omp_get_wtime();
+  // read file:
   nr_bytes = ae_load_file_to_memory(file_name,&result);
   end = omp_get_wtime();
   dif = end-start;
@@ -118,6 +123,7 @@ int main( int argc, const char* argv[] )
   block_size = 1.5*(nr_lines/pow(6,string_size));
   read_count = 0;
   start = omp_get_wtime();
+  // search:
   read_count = read_file(result,search_key,block_size,nr_lines,line_size);
   end = omp_get_wtime();
   dif = end - start;
