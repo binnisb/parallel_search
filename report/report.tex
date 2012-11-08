@@ -144,8 +144,11 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
   
 \subsection{OpenMP}
 
-  The OpenMP implementation is very simple.
-  We first  
+  
+  The seperation between the sequential and parallel part of the algorithm becomes very clear 
+  for openmp. The reason for that is that first we read the data, sequentialy, and then we
+  split the acctual search up on many threads with a OpenMP parallel for loop.  
+  
 
 \subsection{MPI}
 
@@ -205,12 +208,32 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
 
 \subsection{OpemMP}
  
- We ran our implementation of the openmp search algorithm $10$ times 
- once for ea.
+ To examine the performance of our openmp implementation we 
+ We ran our implementation of the openmp search algorithm $10$ times for each number
+ of threads where the number of threads was $1,2,4,8,16,24$.
  In figure ~\ref{fig:openmp_load} and \ref{fig:openmp_search} we see the
- the time it takes to read the data and the time to search the data.
- 
-\begin{figure}[h!]
+ time it takes to read the data and the time to search the data.
+ The reading operation is a single thread operation and hence it should not differ for 
+ different number of threads.  But that is not the case here, if we look at figure \ref{fig:openmp_load}
+ we see that the average reading time is around $60$ seconds for all nr. of process exept
+ $1$ process.  The variation is also much more for one thread so there could be some 
+ errors in the run for $1$ thread. 
+ In figure~\ref{fig:openmp_speedup} we see the speed-up for the search. 
+ The speed-up is very close to optimal which is not supprising since the search is embarrassingly
+ parallel.
+ In figure \ref{fig:openmp_amad1} we see the actual speed up of the code in comparison to Amdahls law.
+ To calculate $P$, the time percent of the parallel part, in Amdahls law we look at the
+ average reading time for one thread, $T_s$, and the average search time for one thread, $T_p$.
+ Then we set $\frac{T_p}{T_p+T_s}$.  We can see from the figure that Amdahls law misses the speed-up 
+ curve completely and estimates some much less speed up than we actually get.
+ But the average reading time for one thread was much higer than for when we had higher numbers of 
+ threads.  It seemed more like the reading time was close to $60s$ and since the reading
+ time dose not depend on number of threds it seems reasonable to fix the reading time as $60s$.
+ In figure \ref{fig:openmp_amad2} we see the total speed-up compared to Amdahls law
+ when the reading time has been fixed as $60$ seconds.  Now our results agree with Amdals law
+ which is not supprising since we got almost perfect speed up for tha parallel part.
+
+\begin{figure}[h!t]
         \centering
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
@@ -232,17 +255,18 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
                          visible)}
                 \label{fig:openmp_search}
         \end{subfigure}
+        \caption{search time and reading time for the openMP experiment}
 \end{figure}
 
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.7\textwidth]{graphics/openmp17gb/search_speedup.png}
-  \caption{Here we see the speed up of the experiemnt.}
+  \caption{Here we see the speed up of the openMP experiemnt.}
   \label{fig:openmp_speedup}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[h!t]
         \centering
         \begin{subfigure}[b]{0.70\textwidth}
                 \centering
@@ -260,53 +284,125 @@ $$ S_N = \frac{1}{(1-P)+\frac{P}{N}}$$
                          the diversity in the reading time.}
                 \label{fig:openmp_amad2}
         \end{subfigure}
+        \caption{Amdahls law for the OpenMP experiment}
 \end{figure}
-%\begin{figure}
-%        \centering
-%        \begin{subfigure}[b]{0.6\textwidth}
-%                \centering
-%                \includegraphics[width=\textwidth]{../graphics/speedup_all.png}
-%                \caption{The red-line is the theoretical speed-up from Ahmads-law, the stars are
-%                         show the acctual speed-up.}
-%                \label{fig:gull}
-%        \end{subfigure}%
-%        \\ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
-%         %(or a blank line to force the subfigure onto a new line)
-%        \begin{subfigure}[b]{0.6\textwidth}
-%                \centering
-%                \includegraphics[width=\textwidth]{../graphics/speedup_search.png}
-%                \caption{Speed up of the search part}
-%                \label{fig:tiger}
-%        \end{subfigure}
-%\end{figure}
+
 
 \clearpage
 \subsection{MPI}
-  More results and text to come in the final report.  This graph was optained from 2.1 Gbyte data file.
+  For the MPI implementation we did the same experiment as for OpenMP. When we talk about
+  reading time and searching time here we mean the reading/searching on the thread that
+  took the longest time to read/search.
+  Whith MPI IO we are only able to read int number of bytes, so at maximum $2^{31}-1$ bytes.
+  So we could not read our 17gb file on $1,2,4$ threds, and can at minimum read the file if we
+  split it up in 8  pieces.  So we reduced the 17gb data file down to 2gb to be able to do a full
+  speed-up experiment.  We then ran the MPI implementation on the same 17gb data file for 
+  $8,16,24$ threads.
+
+  In figure~\ref{fig:mpio2_load} and \ref{fig:mpio2_search} we see the reading time and
+  the searching time for the 2gb file.  It seems like the reading time dose not depend
+  on the number of threads so MPI IO seems to be doing a good job scheduling multiple 
+  reads to one file.  If we on the otherhand look at figure \ref{fig:mpio_load}, 
+  the reading time for the 17gb data file, there seems to be a positive corrilation
+  between the number of processes and reading time. If we compair the reading time
+  for MPI to the reading time for OpenMP we see that the reading time
+  for MPI is around 100 seconds and the reading time for OpenMP is around 60 seconds.
   
-\begin{figure}[h!]
+
+  In figure \ref{fig:mpio2_speedup} we see the speed-up of the search.  Which is
+  close to optimal.  The we can see the speed-up compared to Amdahls law in figure \ref{fig:mpio2_amad1}
+  and we fix the reading time as $8$ seconds.
+
+  In figures \ref{fig:mpio_load} and \ref{fig:mpio_search} we can see the reading time and 
+  the searching time for the 17gb data file.  Since we where not able to run the 17gb file 
+  on one process we can not really look into the speed-up.  
+  It is reasonable to expect a linear speed-up since this part is embarrassingly parallel.
+  That would give us that it takes around 24 seconds to run the 17gb file on one process.
+  This imaginary speed-up is what we see in figure \ref{fig:mpio_speedup}.
+
+\begin{figure}[h!t]
         \centering
-        \begin{subfigure}[b]{0.48\textwidth}
+        \begin{subfigure}[b]{0.70\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{graphics/mpio_load_data.png}
-                \caption{Running time of the loading time, average of 10 runns}
-                \label{fig:gull}
+                \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/load_time.png}
+                \caption{Running time of sequential part, reading the data. 
+                         We have average of 10 runns and the standard deviation for each number
+                         of processes.}
+                \label{fig:mpio2_load}
         \end{subfigure}%
          %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
           %(or a blank line to force the subfigure onto a new line)
-\\
-        \begin{subfigure}[b]{0.48\textwidth}
+        \\
+        \begin{subfigure}[b]{0.70\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{graphics/mpio_searching_time.png}
-                \caption{Running time of the search, average of 10 runns}
-                \label{fig:tiger}
+                \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/search_time.png}
+                \caption{Running time of the parallel part of the code, the acctual search. 
+                         We have average of 10 runns and the standard deviation for each number
+                         of processes (the standard deviation is close to zero so it is hardly 
+                         visible)}
+                \label{fig:mpio2_search}
         \end{subfigure}
-        \begin{subfigure}[b]{0.48\textwidth}
+        \caption{search time and reading time for the 2gb data file MPI}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{graphics/mpio2gb_take2/search_speedup.png}
+  \caption{Here we see the speed up of the MPI 2gb experiemnt.}
+  \label{fig:mpio2_speedup}
+\end{figure}
+
+\begin{figure}[h!t]
+        \centering
+        \begin{subfigure}[b]{0.70\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{graphics/mpi_search_speedup.png}
-                \caption{Speed-up of the search part, average of 10 runns}
-                \label{fig:a}
+                \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/Amdahls_law.png}
+                \caption{Here we compair our result with Amdahls law.}
+                \label{fig:mpio2_amad1}
+        \end{subfigure}%
+         %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \\
+        \begin{subfigure}[b]{0.70\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/mpio2gb_take2/Amdahls_law2.png}
+                \caption{Here we compair our results with Amdahls law where we have factored in
+                         the diversity in the reading time.}
+                \label{fig:mpio2_amad2}
         \end{subfigure}
+        \caption{Amdahls law for the 2gb OpenMP experiment.}
+\end{figure}
+
+\begin{figure}[h!t]
+        \centering
+        \begin{subfigure}[b]{0.70\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/mpio17gb/load_time.png}
+                \caption{Running time of sequential part, reading the data. 
+                         We have average of 10 runns and the standard deviation for each number
+                         of processes.}
+                \label{fig:mpio_load}
+        \end{subfigure}%
+         %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \\
+        \begin{subfigure}[b]{0.70\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{graphics/mpio17gb/search_time.png}
+                \caption{Running time of the parallel part of the code, the acctual search. 
+                         We have average of 10 runns and the standard deviation for each number
+                         of processes (the standard deviation is close to zero so it is hardly 
+                         visible)}
+                \label{fig:mpio_search}
+        \end{subfigure}
+        \caption{search time and reading time for the 17gb OpenMP experiment}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{graphics/mpio17gb/search_speedup.png}
+  \caption{Here we see the speed up of the OpenMP 17gb experiment.}
+  \label{fig:mpio_speedup}
 \end{figure}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

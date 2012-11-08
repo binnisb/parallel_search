@@ -7,7 +7,9 @@ class Stat:
         self.id = id
         self.load = []
         self.search = []
-        
+
+        self.load_mean = []
+        self.search_mean =[]        
     def __lt__(self,stat):
         return self.id < stat.id
     
@@ -17,7 +19,7 @@ class Stat:
         return "%s" %(self.id)
 
 #path = '../result/17gbfile/'
-path = '../result/openmp17gb/'
+path = '../result/mpio17gb/'
 a = os.listdir(path)
 stats = []
 for fs in a:
@@ -27,9 +29,13 @@ for fs in a:
     max_search = 0
     max_load = 0
 
+    loads = []
+    sears = []
+
     for line in f:
         if line.split()[0] == 'LoadFile' or line.split()[0] == 'Search' :
             gaur =  float(line.split()[3])
+            # max data
             if line.split()[0] == 'LoadFile' and gaur > max_load:
                 #s.load.append(float(line.split()[3]))
                 max_load =  gaur
@@ -37,12 +43,27 @@ for fs in a:
             elif line.split()[0] == 'Search' and gaur > max_search:                
                 #s.search.append(float(line.split()[3]))
                 max_search = gaur
+            # mean data
+            if line.split()[0] == 'LoadFile':
+                #s.load.append(float(line.split()[3]))
+                loads.append(gaur)
+            elif line.split()[0] == 'Search':
+                #s.search.append(float(line.split()[3]))
+                sears.append(gaur)
 
-        if (line.split()[0] == 'The' and line.split()[1] == 'sum') or (line.split()[0]=='result' and line.split()[1]=='found:'):
-            s.load.append(max_load)
-            s.search.append(max_search)
-            max_load = 0
-            max_search = 0
+
+        if len(line.split()) > 2:
+            if (line.split()[0] == 'The' and line.split()[1] == 'sum') or (line.split()[0]=='result' and line.split()[1]=='found:'):# or (line.split()[2]=='exit'):
+                s.load.append(max_load)
+                s.search.append(max_search)
+                max_load = 0
+                max_search = 0
+                # mean data
+                s.load_mean.append(average(loads))
+                s.search_mean.append(average(sears))
+                loads = []
+                sears = []
+            
     stats.append(s)
 stats.sort()
 #for i in stats:
@@ -57,6 +78,8 @@ for st in stats:
     plot([st.id for i in range(2)],[aver-stand,aver+stand],'+k')
     plot(st.id,aver,'or')
 
+
+plot([0,25],[0,0],'w')
 #plot([s.id for s in stats],[average(s.search) for s in stats],'o-',label='search')
 #legend()
 xlabel("nr of process")
@@ -73,19 +96,24 @@ for st in stats:
     plot([st.id for i in range(2)],[aver-stand,aver+stand],'+k')
     plot(st.id,aver,'or')
 
+plot([0,25],[0,0],'w')
 xlabel("nr of process")
 ylabel("loading time in seconds")
 
-first_guy = average(stats[0].search)
+first_guy = 24#average(stats[0].search)
 figure(3)
 plot([s.id for s in stats],[first_guy/average(s.search) for s in stats],'o-',label='search')
 plot([s.id for s in stats],[s.id for s in stats],'--',label='optimal speed-up')
+
+#first_guy = average(stats[0].search)
+#plot([s.id for s in stats],[first_guy/average(s.search) for s in stats],'o-r',label='search')
+
 legend(loc=2)
 xlabel("nr of process")
 ylabel("speed-up of the search")
 
 # Amhads law
-T_p = average(stats[0].search) # sequential time of the parallel part, search
+T_p = 24#average(stats[0].search) # sequential time of the parallel part, search
 T_s = average(stats[0].load)   # time of the sequential part
 P = T_p/(T_s+T_p)
 figure(4)
@@ -97,7 +125,7 @@ xlabel("nr of process")
 ylabel("speed-up")
  
 figure(5)
-T_s = 50
+T_s = 100
 P = T_p/(T_s+T_p)
 plot([s for s in range(1,25)],[1/((1-P)+(P/s)) for s in range(1,25)],'--',label='Amdahls law')
 plot([s.id for s in stats],[(T_p+T_s)/( T_s+average(s.search) ) for s in stats],'o-r',label='our results')
