@@ -111,8 +111,8 @@ int main( int argc, char* argv[] )
   int read_count;
   int line_size;
   int sum;
+  start = omp_get_wtime();
   if (myid == 0) { 
-    start = omp_get_wtime();
     nr_bytes = ae_load_file_to_memory(file_name,&result);
     end = omp_get_wtime();
     dif = end-start;
@@ -140,7 +140,6 @@ int main( int argc, char* argv[] )
   int *sendcounts;
   int *displacement;
   char *myresult;
-  
   sendcounts = (int *)malloc(numprocs*sizeof(int));
   displacement = (int *)malloc(numprocs*sizeof(int));
   for (i = 0; i < numprocs; i++) {
@@ -153,14 +152,12 @@ int main( int argc, char* argv[] )
     }
   }
   myresult = (char *)malloc(sendcounts[myid]*sizeof(char));
- 
   MPI_Scatterv(result, sendcounts, displacement, MPI_CHAR, myresult, sendcounts[myid], MPI_CHAR, 0, MPI_COMM_WORLD); 
   free(result);
   //MPI Send Receive done
   block_size = 1.5*(nr_lines/pow(6,string_size));
   read_count = 0;
 
-  start = omp_get_wtime();
   read_count = read_file(myresult,search_key,block_size,sendcounts[myid]/line_size,line_size);
   end = omp_get_wtime();
   dif = end - start;

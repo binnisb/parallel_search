@@ -1,4 +1,4 @@
-all: serial data_generator openmp mpi mpio
+all: serial data_generator openmp mpi mpio mpi_single_reader
 
 data: data_generator
 	./../bin/data_generator
@@ -14,5 +14,5 @@ mpi: search_mpi.c
 	cc search_mpi.c -O2 -o ../bin/search_mpi
 mpio: search_mpio.c
 	cc search_mpio.c -O2 -o ../bin/search_mpio
-mpi_openmp: search_mpi_openmp.c
-	cc search_mpi_openmp.c -O2 -openmp -o ../bin/search_mpi_openmp
+mpi_single_reader: search_mpi_single_reader.c
+	cc search_mpi_single_reader.c -O2 -openmp -o ../bin/search_mpi_single_reader
