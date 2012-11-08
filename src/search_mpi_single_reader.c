@@ -56,10 +56,11 @@ int read_file( char*     input_file,
   int key_len = strlen(key);
 
   result = malloc(sizeof(*result)*result_size);
-  #pragma omp parallel for private(i,line) shared(result,result_counter,result_size,key,result_size_block)
+//  #pragma omp parallel for private(i,line) shared(result,result_counter,result_size,key,result_size_block)
+
+
   for ( i = 0; i < nr_lines; i++ ) {
-    strncpy(line,&input_file[i*line_size],line_size);
-    
+    strncpy(line,&input_file[i*line_size],line_size);    
     line[line_size - 1] = '\0';
     // line contains a single line from the file. We compare the last part of the line to the search key.
     if ( strcmp(&line[line_size-(key_len+1)], key) == 0){
@@ -81,7 +82,7 @@ int read_file( char*     input_file,
 }
 
 
-int main( int argc, const char* argv[] )
+int main( int argc, char* argv[] )
 {
   int numprocs;  // number of processes
   int myid;      // my rank
@@ -101,42 +102,48 @@ int main( int argc, const char* argv[] )
   char* result;
   char* search_key = "123123";
 
-  long long nr_bytes; 
+  long long nr_bytes = 0; 
   long long i;
   long long nr_lines;
-
+  long long bytes_and_lines[2];
   int string_size = strlen(search_key);
   int block_size;
   int read_count;
   int line_size;
- 
+  int sum;
   start = omp_get_wtime();
-  nr_bytes = ae_load_file_to_memory(file_name,&result);
-  end = omp_get_wtime();
-  dif = end-start;
-  printf("LoadFile core %i: %f\n",omp_get_thread_num(), dif);
+  if (myid == 0) { 
+    nr_bytes = ae_load_file_to_memory(file_name,&result);
+    end = omp_get_wtime();
+    dif = end-start;
+    printf("LoadFile core %i: %f\n",myid, dif);
 
-  // assume each line in file is equally long. here we get the line size.
-  for ( i=0 ; i<nr_bytes ; i++ ){
-    if ( result[i]=='\n' ){
-      line_size = i+1;
-      break;   
+    // assume each line in file is equally long. here we get the line size.
+    for ( i=0 ; i<nr_bytes ; i++ ){
+      if ( result[i]=='\n' ){
+        line_size = i+1;
+        break;   
+      }
     }
   }
-  
-  // 
+  else {
+    result = NULL;
+  }
+  bytes_and_lines[0] = nr_bytes;
+  bytes_and_lines[1] = line_size;
+  MPI_Bcast(&bytes_and_lines,2,MPI_LONG_LONG_INT,0,MPI_COMM_WORLD);
+  nr_bytes = bytes_and_lines[0];
+  line_size = (int)bytes_and_lines[1];
   nr_lines = nr_bytes / line_size;
-
-  block_size = 1.5*(nr_lines/pow(6,string_size));
-  read_count = 0;
-
   //MPI Send Receive
 
-  int *sendcounts = (int *)malloc(numprocs);
-  int *displacement = (int *)malloc(numprocs);
+  int *sendcounts;
+  int *displacement;
   char *myresult;
-  for (i == 0; i < numprocs; i++) {
-    sendcounts[i] = ((nr_lines+my_rank)/numprocs)*nr_bytes;
+  sendcounts = (int *)malloc(numprocs*sizeof(int));
+  displacement = (int *)malloc(numprocs*sizeof(int));
+  for (i = 0; i < numprocs; i++) {
+    sendcounts[i] = ((nr_lines+i)/numprocs)*line_size;
     if (i == 0) {
       displacement[i] = 0;
     }
@@ -144,22 +151,21 @@ int main( int argc, const char* argv[] )
       displacement[i] = displacement[i-1] +sendcounts[i-1];
     }
   }
-  myresult = (char *)malloc(sendcounts[myid]);
-  if (myid==0) {
-    MPI_Scatterv(result, sendcounts, MPI_CHAR, myresult, sendcounts[myid], MPI_CHAR, 0, MPI_COMM_WORLD); 
-  }
+  myresult = (char *)malloc(sendcounts[myid]*sizeof(char));
+  MPI_Scatterv(result, sendcounts, displacement, MPI_CHAR, myresult, sendcounts[myid], MPI_CHAR, 0, MPI_COMM_WORLD); 
+  free(result);
+  //MPI Send Receive done
+  block_size = 1.5*(nr_lines/pow(6,string_size));
+  read_count = 0;
 
-  for (i == 0; i < 100; i++)
-  {
-    printf("Myid %i, myresult[%i] = %s",myid,i,myresult[i]);
-  }
-  //
-
-  start = omp_get_wtime();
-  read_count = read_file(result,search_key,block_size,nr_lines,line_size);
+  read_count = read_file(myresult,search_key,block_size,sendcounts[myid]/line_size,line_size);
   end = omp_get_wtime();
   dif = end - start;
-  printf("Search core %i: %f\n",omp_get_thread_num(),dif);
-  printf("result found: %i\n", read_count);
-
+  printf("Search core %i: %f\n",myid,dif);
+  MPI_Reduce(&read_count, &sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+  if (myid == 0) {
+    printf("result found: %i\n", sum);
+  }
+  MPI_Finalize();
+  exit(0);
 }
