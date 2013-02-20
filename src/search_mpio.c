@@ -134,7 +134,7 @@ int main( int argc,  char* argv[] )
 
   // Find file size in bytes:
   size = 0;
-  MPI_File_open( MPI_COMM_WORLD, file_name, MPI_MODE_RDONLY, MPI_INFO_NULL, &infile );
+  MPI_File_open( MPI_COMM_WORLD, argv[1], MPI_MODE_RDONLY, MPI_INFO_NULL, &infile );
   MPI_File_get_size(infile,&size); // get number of bytes in the data file
   
   // Find the line size in byte:

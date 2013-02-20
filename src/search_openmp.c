@@ -104,7 +104,7 @@ int main( int argc, const char* argv[] )
  
   start = omp_get_wtime();
   // read file:
-  nr_bytes = ae_load_file_to_memory(file_name,&result);
+  nr_bytes = ae_load_file_to_memory(argv[1],&result);
   end = omp_get_wtime();
   dif = end-start;
   printf("LoadFile core %i: %f\n",omp_get_thread_num(), dif);

@@ -89,7 +89,12 @@ int read_file(char*      input_file,
 
 int main( int argc,  char* argv[] )
 {
-
+  if ( argc != 2 ) /* argc should be 2 for correct execution */
+  {
+      /* We print argv[0] assuming it is the program name */
+      printf( "usage: %s filename", argv[0] );
+      exit(2);
+  }
   // Paralell starts:
   int numprocs; // number of processes
   int myid;     // my rank
@@ -120,7 +125,7 @@ int main( int argc,  char* argv[] )
 
   // Find file size in bytes:
   long long size = 0;
-  FILE *f = fopen(file_name, "rb");
+  FILE *f = fopen(argv[1], "rb");
   if (f == NULL)
   {
     return -1; // -1 means file opening fail 
@@ -139,7 +144,7 @@ int main( int argc,  char* argv[] )
   nr_lines = size/line_size;
 
   start = MPI_Wtime();
-  nr_bytes = ae_load_file_to_memory(file_name ,&result, myid, numprocs, nr_lines, line_size);
+  nr_bytes = ae_load_file_to_memory(argv[1],&result, myid, numprocs, nr_lines, line_size);
   nr_lines = nr_bytes / line_size;
   end = MPI_Wtime();
   dif = end-start;

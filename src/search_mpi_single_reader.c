@@ -113,7 +113,7 @@ int main( int argc, char* argv[] )
   int sum;
   start = omp_get_wtime();
   if (myid == 0) { 
-    nr_bytes = ae_load_file_to_memory(file_name,&result);
+    nr_bytes = ae_load_file_to_memory(argv[1],&result);
     end = omp_get_wtime();
     dif = end-start;
     printf("LoadFile core %i: %f\n",myid, dif);

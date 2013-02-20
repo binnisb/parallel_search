@@ -1,0 +1,24 @@
+#PBS -N parallel_search_mpi2gb
+# 59 minute wall-clock time will be given to this job
+#PBS -l walltime=59:00
+# Number of MPI tasks. Should always be a multiple of 24
+# i.e. an entire node on Lindgren
+#PBS -l mppwidth=24
+# Change to the work directory
+echo $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
+# Run the program, always use aprun!
+DIRECTORY=../result/new/mpi2gb
+DATAFILE=../data/file2gb.txt
+
+mkdir -p $DIRECTORY
+rm $DIRECTORY/core*
+for i in 24 16 8 4 2 1
+do
+  for j in {1..10}
+  do
+    echo "cores:        $i      run:    $j" >> $DIRECTORY/cores.$i.txt
+    aprun -n $i ./../bin/search_mpi $DATAFILE >> $DIRECTORY/cores.$i.txt
+    wait
+  done
+done

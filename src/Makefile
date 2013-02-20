@@ -15,4 +15,4 @@ mpi: search_mpi.c
 mpio: search_mpio.c
 	cc search_mpio.c -O2 -o ../bin/search_mpio
 mpi_single_reader: search_mpi_single_reader.c
-	cc search_mpi_single_reader.c -O2 -openmp -o ../bin/search_mpi_single_reader
+	cc search_mpi_single_reader.c -O2 -o ../bin/search_mpi_single_reader
