@@ -58,7 +58,11 @@ int read_file(char*      input_file,
   //  nr_lines:          nr of lines in file. 
   //  line_sie:          size of line in char
   //
-  // It is assumed that all lines in input_file have the same length and are on the form: "0000001	123123\n" where first is an index and then the search values
+  // It is assumed that all lines in input_file have the same 
+  // length and are on the form: 
+  //    "0000001\t123123\n" 
+  // Where the first integer sequence is an id and 
+  // the second is the  values.
 
   char line[line_size]; // line in file
   long long i;

@@ -1,0 +1,6 @@
+Conclusion
+Comparing loading times for OpenMP, MPI I/O and MPI with single read we see that OpenMP is very consistent in reading a the data file, no matter how many processes we use. It seems to be comparable with MPI single read, as it should since it is basically the same method used there. We had high hope for MPI I/O for fast parallel file reading, but we were surprised by the result. On average it seems to be about 50% slower than the other methods. We suspect that the file system used does not support parallel file reading and so with more processes there becomes more latency for the file reading process.
+
+For the search part, which we believed to be embarrassingly parallel, we got mostly linear speed-up. Both OpenMP and MPI I/O seemed to deliver on that part. However when we looked at the MPI with Single read and scattering, we seemed to get little speed-up even when we examined only the time after file loading. This suggests that the latency in the message interface outweighs the benefit of many processes in this case.
+
+We had more problems with MPI than we expected. Many of these problems were due to restrictions of counter variables that are usually declared as INT. This will however be considered in MPI 3 and this restriction will be fixed. There is also supposed to be better support for MPI I/O in MPI 3.
