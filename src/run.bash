@@ -14,7 +14,7 @@
 #  done
 #done
 
-DIRECTORY=../result/mpi2gb_single_reader
+DIRECTORY=../result/new/mpi2gb_single_reader
 mkdir -p $DIRECTORY
 rm $DIRECTORY/core*
 for i in 24 16 8 4 2 1
