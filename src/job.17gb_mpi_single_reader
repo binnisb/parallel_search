@@ -1,6 +1,6 @@
 #PBS -N parallel_search_mpi17gb_single_reader
 # 59 minute wall-clock time will be given to this job
-#PBS -l walltime=24:00:00
+#PBS -l walltime=4:00:00
 # Number of MPI tasks. Should always be a multiple of 24
 # i.e. an entire node on Lindgren
 #PBS -l mppwidth=24
