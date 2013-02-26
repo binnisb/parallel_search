@@ -3,6 +3,7 @@
 #include <time.h>
 #include <math.h>
 #include <stdlib.h>
+#include <omp.h> //For timing
 long long ae_load_file_to_memory(const char *filename, char **result) 
 { 
 	long long size = 0;
@@ -81,7 +82,8 @@ int read_file(char* input_file, char* key, int result_size_block, long long nr_l
 
 int main( int argc, const char* argv[] )
 {
-  time_t start,end;
+  double start,end;
+  double dif;
   //int data_size = 100000000;
 //  int string_size = 6;
 //  int block_size = 1.5*(data_size/pow(10,string_size));
@@ -89,10 +91,11 @@ int main( int argc, const char* argv[] )
   char* file_name = "../data/file.txt";
   char* result;
   long long nr_bytes;
-  start = time(NULL);
-  nr_bytes = ae_load_file_to_memory(file_name,&result);
-  end = time(NULL);
-  printf("load file %f\n",difftime(end,start));
+  start = omp_get_wtime();
+  nr_bytes = ae_load_file_to_memory(argv[1],&result);
+  end = omp_get_wtime();
+  dif = end-start;
+  printf("load file %f\n",dif);
   int line_size;
   long long i;
   for ( i=0 ; i<nr_bytes ; i++ ){
@@ -108,10 +111,11 @@ int main( int argc, const char* argv[] )
   int string_size = 6;
   int block_size = 1.5*(data_size/pow(10,string_size));
   int read_count;
-  start = time(NULL);
+  start = omp_get_wtime();
   read_count = read_file(result,"123123",block_size,data_size,line_size);
-  end = time(NULL);
-  printf("search: %f\n",difftime(end,start));
+  end = omp_get_wtime();
+  dif = end - start;
+  printf("search: %f\n",dif);
   printf("result found: %i\n", read_count);
 
 }
