@@ -1,0 +1,22 @@
+#PBS -N parallel_search_serial2gb
+# 59 minute wall-clock time will be given to this job
+#PBS -l walltime=59:00
+# Number of MPI tasks. Should always be a multiple of 24
+# i.e. an entire node on Lindgren
+#PBS -l mppwidth=24
+# Change to the work directory
+echo $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
+# Run the program, always use aprun!
+DIRECTORY=../result/new/serial2gb
+DATAFILE=../data/file2gb.txt
+
+mkdir -p $DIRECTORY
+rm $DIRECTORY/core*
+
+for j in {1..10}
+do
+  echo "cores:        1      run:    $j" >> $DIRECTORY/cores.1.txt
+  aprun -n 1 ./../bin/search_serial $DATAFILE >> $DIRECTORY/cores.1.txt
+  wait
+done

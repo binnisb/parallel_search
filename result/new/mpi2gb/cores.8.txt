@@ -1,0 +1,190 @@
+cores:        8      run:    1
+LoadFile: 4.185854
+LoadFile: 4.276476
+Search: 0.375390
+Search: 0.371767
+LoadFile: 5.333001
+Search: 0.374493
+LoadFile: 5.839633
+LoadFile: 5.948066
+Search: 0.000001
+LoadFile: 6.141090
+Search: 0.390302
+LoadFile: 6.287404
+LoadFile: 6.399831
+Search: 0.378777
+Search: 0.373375
+Search: 0.370442
+The sum is 115
+Application 1415256 resources: utime ~10s, stime ~7s
+cores:        8      run:    2
+LoadFile: 5.207396
+LoadFile: 5.419101
+LoadFile: 5.489612
+Search: 0.385222
+LoadFile: 5.725023
+LoadFile: 5.778997
+Search: 0.378896
+LoadFile: 5.800106
+Search: 0.000002
+Search: 0.378270
+LoadFile: 6.013750
+LoadFile: 6.042455
+Search: 0.375726
+Search: 0.374711
+Search: 0.370240
+Search: 0.370152
+The sum is 115
+Application 1415260 resources: utime ~6s, stime ~11s
+cores:        8      run:    3
+LoadFile: 4.438123
+LoadFile: 4.454194
+Search: 0.379253
+Search: 0.378996
+LoadFile: 4.892873
+LoadFile: 4.919419
+LoadFile: 5.133675
+Search: 0.000002
+LoadFile: 5.169007
+LoadFile: 5.176836
+LoadFile: 5.233222
+Search: 0.377345
+Search: 0.382444
+Search: 0.372235
+Search: 0.370387
+Search: 0.371095
+The sum is 115
+Application 1415264 resources: utime ~5s, stime ~10s
+cores:        8      run:    4
+LoadFile: 4.824863
+Search: 0.000002
+LoadFile: 6.480579
+Search: 0.371201
+LoadFile: 7.224591
+LoadFile: 7.563390
+LoadFile: 7.592812
+Search: 0.377552
+LoadFile: 7.634160
+LoadFile: 7.938431
+Search: 0.377066
+Search: 0.378829
+Search: 0.374994
+Search: 0.372179
+LoadFile: 8.406194
+Search: 0.370116
+The sum is 115
+Application 1415266 resources: utime ~13s, stime ~9s
+cores:        8      run:    5
+LoadFile: 6.133450
+Search: 0.000001
+LoadFile: 6.227086
+Search: 0.373584
+LoadFile: 6.853965
+LoadFile: 7.042405
+LoadFile: 7.174029
+Search: 0.379628
+LoadFile: 7.277513
+LoadFile: 7.386911
+Search: 0.381115
+Search: 0.381052
+LoadFile: 7.611694
+Search: 0.373996
+Search: 0.370731
+Search: 0.370404
+The sum is 115
+Application 1415271 resources: utime ~8s, stime ~7s
+cores:        8      run:    6
+LoadFile: 6.585855
+Search: 0.375174
+LoadFile: 7.979971
+Search: 0.372911
+LoadFile: 8.530101
+LoadFile: 8.830862
+Search: 0.385268
+Search: 0.375234
+LoadFile: 9.281474
+LoadFile: 9.326527
+LoadFile: 9.385510
+Search: 0.000002
+LoadFile: 9.475716
+Search: 0.371664
+Search: 0.370631
+Search: 0.370242
+The sum is 115
+Application 1415274 resources: utime ~9s, stime ~8s
+cores:        8      run:    7
+LoadFile: 4.124592
+Search: 0.000002
+LoadFile: 6.107432
+Search: 0.370406
+LoadFile: 6.777966
+Search: 0.372901
+LoadFile: 8.763168
+LoadFile: 8.898776
+LoadFile: 8.975634
+Search: 0.375408
+Search: 0.374154
+LoadFile: 9.304587
+Search: 0.373873
+LoadFile: 9.449358
+Search: 0.375337
+Search: 0.370925
+The sum is 115
+Application 1415278 resources: utime ~16s, stime ~7s
+cores:        8      run:    8
+LoadFile: 4.425424
+Search: 0.377902
+LoadFile: 5.462089
+LoadFile: 5.593627
+Search: 0.000002
+Search: 0.375869
+LoadFile: 5.884966
+LoadFile: 6.070060
+LoadFile: 6.161965
+Search: 0.379398
+LoadFile: 6.292570
+LoadFile: 6.355805
+Search: 0.371344
+Search: 0.376347
+Search: 0.371931
+Search: 0.370859
+The sum is 115
+Application 1415284 resources: utime ~8s, stime ~9s
+cores:        8      run:    9
+LoadFile: 5.765206
+Search: 0.373969
+LoadFile: 6.293030
+LoadFile: 6.516218
+Search: 0.000002
+LoadFile: 6.559237
+LoadFile: 6.566072
+LoadFile: 6.702192
+LoadFile: 6.709100
+LoadFile: 6.789563
+Search: 0.517269
+Search: 0.370658
+Search: 0.377732
+Search: 0.372604
+Search: 0.372344
+Search: 0.370981
+The sum is 115
+Application 1415287 resources: utime ~5s, stime ~10s
+cores:        8      run:    10
+LoadFile: 4.832458
+Search: 0.376513
+LoadFile: 5.574166
+LoadFile: 5.847994
+Search: 0.375653
+LoadFile: 5.982529
+LoadFile: 6.081542
+Search: 0.000002
+Search: 0.386276
+LoadFile: 6.312948
+LoadFile: 6.341399
+Search: 0.372687
+LoadFile: 6.436393
+Search: 0.374044
+Search: 0.372949
+Search: 0.371675
+The sum is 115
+Application 1415290 resources: utime ~7s, stime ~8s

@@ -1,0 +1,50 @@
+cores:        1      run:    1
+LoadFile core 0: 5.088191
+Search core 0: 2.960886
+The sum is 134
+Application 1415367 resources: utime ~3s, stime ~4s
+cores:        1      run:    2
+LoadFile core 0: 3.494429
+Search core 0: 2.999325
+The sum is 134
+Application 1415369 resources: utime ~3s, stime ~4s
+cores:        1      run:    3
+LoadFile core 0: 4.235073
+Search core 0: 2.982755
+The sum is 134
+Application 1415372 resources: utime ~3s, stime ~4s
+cores:        1      run:    4
+LoadFile core 0: 5.374482
+Search core 0: 2.962871
+The sum is 134
+Application 1415377 resources: utime ~3s, stime ~4s
+cores:        1      run:    5
+LoadFile core 0: 5.551685
+Search core 0: 2.968898
+The sum is 134
+Application 1415381 resources: utime ~3s, stime ~4s
+cores:        1      run:    6
+LoadFile core 0: 7.035648
+Search core 0: 2.947731
+The sum is 134
+Application 1415384 resources: utime ~3s, stime ~4s
+cores:        1      run:    7
+LoadFile core 0: 5.794537
+Search core 0: 2.978181
+The sum is 134
+Application 1415388 resources: utime ~3s, stime ~4s
+cores:        1      run:    8
+LoadFile core 0: 4.063077
+Search core 0: 2.967115
+The sum is 134
+Application 1415393 resources: utime ~3s, stime ~4s
+cores:        1      run:    9
+LoadFile core 0: 4.794096
+Search core 0: 2.954488
+The sum is 134
+Application 1415396 resources: utime ~3s, stime ~4s
+cores:        1      run:    10
+LoadFile core 0: 4.388858
+Search core 0: 2.996778
+The sum is 134
+Application 1415399 resources: utime ~3s, stime ~4s

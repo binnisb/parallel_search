@@ -1,0 +1,40 @@
+cores:        4      run:    1
+LoadFile core 0: 42.564271
+Application 1416142 exit codes: 134
+Application 1416142 resources: utime ~42s, stime ~0s
+cores:        4      run:    2
+LoadFile core 0: 49.559313
+Application 1416144 exit codes: 134
+Application 1416144 resources: utime ~0s, stime ~36s
+cores:        4      run:    3
+LoadFile core 0: 42.468957
+Application 1416147 exit codes: 134
+Application 1416147 resources: utime ~42s, stime ~1s
+cores:        4      run:    4
+LoadFile core 0: 42.792679
+Application 1416148 exit codes: 134
+Application 1416148 resources: utime ~43s, stime ~0s
+cores:        4      run:    5
+LoadFile core 0: 46.905896
+Application 1416149 exit codes: 134
+Application 1416149 resources: utime ~46s, stime ~1s
+cores:        4      run:    6
+LoadFile core 0: 45.774883
+Application 1416152 exit codes: 134
+Application 1416152 resources: utime ~45s, stime ~1s
+cores:        4      run:    7
+LoadFile core 0: 42.795375
+Application 1416154 exit codes: 134
+Application 1416154 resources: utime ~0s, stime ~36s
+cores:        4      run:    8
+LoadFile core 0: 43.675557
+Application 1416158 exit codes: 134
+Application 1416158 resources: utime ~0s, stime ~36s
+cores:        4      run:    9
+LoadFile core 0: 42.268297
+Application 1416160 exit codes: 134
+Application 1416160 resources: utime ~42s, stime ~1s
+cores:        4      run:    10
+LoadFile core 0: 42.426024
+Application 1416161 exit codes: 134
+Application 1416161 resources: utime ~42s, stime ~0s

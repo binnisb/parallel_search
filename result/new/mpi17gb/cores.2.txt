@@ -1,0 +1,70 @@
+cores:        2      run:    1
+LoadFile: 125.331523
+LoadFile: 133.737275
+Search: 11.978173
+Search: 11.980825
+The sum is 983
+Application 1416014 resources: utime ~32s, stime ~41s
+cores:        2      run:    2
+LoadFile: 137.331611
+LoadFile: 138.437368
+Search: 11.991399
+Search: 11.958485
+The sum is 983
+Application 1416017 resources: utime ~25s, stime ~42s
+cores:        2      run:    3
+LoadFile: 133.896932
+LoadFile: 137.267964
+Search: 12.026230
+Search: 11.954226
+The sum is 983
+Application 1416038 resources: utime ~27s, stime ~42s
+cores:        2      run:    4
+LoadFile: 141.920399
+LoadFile: 147.404501
+Search: 12.049767
+Search: 11.964163
+The sum is 983
+Application 1416041 resources: utime ~29s, stime ~41s
+cores:        2      run:    5
+LoadFile: 126.831919
+LoadFile: 138.045562
+Search: 12.030739
+Search: 11.972609
+The sum is 983
+Application 1416043 resources: utime ~35s, stime ~40s
+cores:        2      run:    6
+LoadFile: 129.518358
+LoadFile: 135.610236
+Search: 12.057370
+Search: 11.949332
+The sum is 983
+Application 1416045 resources: utime ~30s, stime ~41s
+cores:        2      run:    7
+LoadFile: 129.640927
+LoadFile: 135.751905
+Search: 12.032121
+Search: 11.972561
+The sum is 983
+Application 1416047 resources: utime ~30s, stime ~41s
+cores:        2      run:    8
+LoadFile: 122.906591
+LoadFile: 126.260530
+Search: 12.038222
+Search: 11.975358
+The sum is 983
+Application 1416049 resources: utime ~27s, stime ~41s
+cores:        2      run:    9
+LoadFile: 124.192990
+LoadFile: 127.948014
+Search: 12.031158
+Search: 11.980886
+The sum is 983
+Application 1416051 resources: utime ~28s, stime ~42s
+cores:        2      run:    10
+LoadFile: 119.983198
+LoadFile: 123.086608
+Search: 12.063894
+Search: 11.955781
+The sum is 983
+Application 1416053 resources: utime ~27s, stime ~41s

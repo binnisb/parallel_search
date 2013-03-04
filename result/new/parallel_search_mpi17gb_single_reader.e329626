@@ -1,0 +1,350 @@
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:12:22 2013] PE RANK 4 exit signal Bus error
+[NID 00931] 2013-02-21 15:12:22 Apid 1416089: initiated application termination
+[NID 00931] 2013-02-21 15:12:23 Apid 1416089: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:13:12 2013] PE RANK 4 exit signal Bus error
+[NID 00931] 2013-02-21 15:13:12 Apid 1416092: initiated application termination
+[NID 00931] 2013-02-21 15:13:14 Apid 1416092: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:14:04 2013] PE RANK 5 exit signal Bus error
+[NID 00931] 2013-02-21 15:14:04 Apid 1416095: initiated application termination
+[NID 00931] 2013-02-21 15:14:05 Apid 1416095: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:14:57 2013] PE RANK 5 exit signal Bus error
+[NID 00931] 2013-02-21 15:14:57 Apid 1416097: initiated application termination
+[NID 00931] 2013-02-21 15:14:58 Apid 1416097: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:15:50 2013] PE RANK 4 exit signal Bus error
+[NID 00931] 2013-02-21 15:15:50 Apid 1416100: initiated application termination
+[NID 00931] 2013-02-21 15:15:51 Apid 1416100: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:16:42 2013] PE RANK 5 exit signal Bus error
+[NID 00931] 2013-02-21 15:16:42 Apid 1416102: initiated application termination
+[NID 00931] 2013-02-21 15:16:44 Apid 1416102: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:17:36 2013] PE RANK 4 exit signal Bus error
+[NID 00931] 2013-02-21 15:17:36 Apid 1416104: initiated application termination
+[NID 00931] 2013-02-21 15:17:38 Apid 1416104: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:18:27 2013] PE RANK 4 exit signal Bus error
+[NID 00931] 2013-02-21 15:18:27 Apid 1416107: initiated application termination
+[NID 00931] 2013-02-21 15:18:28 Apid 1416107: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:19:19 2013] PE RANK 5 exit signal Bus error
+[NID 00931] 2013-02-21 15:19:19 Apid 1416109: initiated application termination
+[NID 00931] 2013-02-21 15:19:20 Apid 1416109: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:20:16 2013] PE RANK 5 exit signal Bus error
+[NID 00931] 2013-02-21 15:20:16 Apid 1416111: initiated application termination
+[NID 00931] 2013-02-21 15:20:18 Apid 1416111: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:21:08 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:21:08 Apid 1416112: initiated application termination
+[NID 00931] 2013-02-21 15:21:09 Apid 1416112: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:21:58 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:21:58 Apid 1416113: initiated application termination
+[NID 00931] 2013-02-21 15:22:00 Apid 1416113: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:22:51 2013] PE RANK 7 exit signal Bus error
+[NID 00931] 2013-02-21 15:22:51 Apid 1416114: initiated application termination
+[NID 00931] 2013-02-21 15:22:53 Apid 1416114: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:23:46 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:23:46 Apid 1416115: initiated application termination
+[NID 00931] 2013-02-21 15:23:47 Apid 1416115: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:24:39 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:24:39 Apid 1416116: initiated application termination
+[NID 00931] 2013-02-21 15:24:41 Apid 1416116: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:25:32 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:25:32 Apid 1416117: initiated application termination
+[NID 00931] 2013-02-21 15:25:33 Apid 1416117: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:26:23 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:26:23 Apid 1416122: initiated application termination
+[NID 00931] 2013-02-21 15:26:24 Apid 1416122: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:27:14 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:27:14 Apid 1416125: initiated application termination
+[NID 00931] 2013-02-21 15:27:15 Apid 1416125: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:28:07 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:28:07 Apid 1416126: initiated application termination
+[NID 00931] 2013-02-21 15:28:09 Apid 1416126: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:28:58 2013] PE RANK 3 exit signal Bus error
+[NID 00931] 2013-02-21 15:28:58 Apid 1416127: initiated application termination
+[NID 00931] 2013-02-21 15:29:00 Apid 1416127: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:29:57 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:29:57 Apid 1416128: initiated application termination
+[NID 00931] 2013-02-21 15:29:59 Apid 1416128: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:30:54 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:30:54 Apid 1416131: initiated application termination
+[NID 00931] 2013-02-21 15:30:56 Apid 1416131: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:31:55 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:31:55 Apid 1416132: initiated application termination
+[NID 00931] 2013-02-21 15:31:56 Apid 1416132: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:32:52 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:32:52 Apid 1416133: initiated application termination
+[NID 00931] 2013-02-21 15:32:54 Apid 1416133: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:33:47 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:33:47 Apid 1416134: initiated application termination
+[NID 00931] 2013-02-21 15:33:49 Apid 1416134: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:34:46 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:34:46 Apid 1416135: initiated application termination
+[NID 00931] 2013-02-21 15:34:47 Apid 1416135: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:35:46 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:35:46 Apid 1416137: initiated application termination
+[NID 00931] 2013-02-21 15:35:48 Apid 1416137: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:36:43 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:36:42 Apid 1416139: initiated application termination
+[NID 00931] 2013-02-21 15:36:44 Apid 1416139: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:37:38 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:37:38 Apid 1416140: initiated application termination
+[NID 00931] 2013-02-21 15:37:40 Apid 1416140: Error detected during page fault processing.  Process terminated via bus error.
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:38:34 2013] PE RANK 2 exit signal Bus error
+[NID 00931] 2013-02-21 15:38:34 Apid 1416141: initiated application termination
+[NID 00931] 2013-02-21 15:38:35 Apid 1416141: Error detected during page fault processing.  Process terminated via bus error.
+Rank 0 [Thu Feb 21 15:39:24 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:39:24 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:39:24 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:39:24 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:39:24 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:39:24 Apid 1416142: initiated application termination
+Rank 0 [Thu Feb 21 15:40:22 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:40:22 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:40:22 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:40:22 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:40:24 2013] PE RANK 0 exit signal Aborted
+[NID 00931] 2013-02-21 15:40:24 Apid 1416144: initiated application termination
+Rank 0 [Thu Feb 21 15:41:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:41:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:41:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:41:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:41:12 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:41:12 Apid 1416147: initiated application termination
+Rank 0 [Thu Feb 21 15:42:04 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:42:04 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:42:04 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:42:04 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:42:04 2013] PE RANK 3 exit signal Aborted
+[NID 00931] 2013-02-21 15:42:04 Apid 1416148: initiated application termination
+Rank 0 [Thu Feb 21 15:42:57 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:42:57 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:42:57 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:42:57 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:42:58 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:42:58 Apid 1416149: initiated application termination
+Rank 0 [Thu Feb 21 15:43:52 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:43:52 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:43:52 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:43:52 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:43:53 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:43:53 Apid 1416152: initiated application termination
+Rank 0 [Thu Feb 21 15:44:42 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:44:42 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:44:42 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:44:42 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:44:43 2013] PE RANK 0 exit signal Aborted
+[NID 00931] 2013-02-21 15:44:43 Apid 1416154: initiated application termination
+Rank 0 [Thu Feb 21 15:45:32 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:45:32 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:45:32 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:45:32 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:45:33 2013] PE RANK 0 exit signal Aborted
+[NID 00931] 2013-02-21 15:45:33 Apid 1416158: initiated application termination
+Rank 0 [Thu Feb 21 15:46:21 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:46:21 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:46:21 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:46:21 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:46:22 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:46:22 Apid 1416160: initiated application termination
+Rank 0 [Thu Feb 21 15:47:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaabd86010, scnts=0x8e7b20, displs=0x8e8300, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 1 [Thu Feb 21 15:47:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 2 [Thu Feb 21 15:47:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+Rank 3 [Thu Feb 21 15:47:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e73c0, displs=0x8e7130, MPI_CHAR, rbuf=(nil), rcount=-44967296, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -44967296
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:47:13 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:47:13 Apid 1416161: initiated application termination
+Rank 0 [Thu Feb 21 15:48:04 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:48:04 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:48:05 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:48:05 Apid 1416163: initiated application termination
+Rank 0 [Thu Feb 21 15:48:56 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:48:56 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:48:56 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:48:56 Apid 1416164: initiated application termination
+Rank 0 [Thu Feb 21 15:49:45 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:49:45 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:49:46 2013] PE RANK 0 exit signal Aborted
+[NID 00931] 2013-02-21 15:49:46 Apid 1416166: initiated application termination
+Rank 0 [Thu Feb 21 15:50:34 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:50:34 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:50:34 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:50:34 Apid 1416170: initiated application termination
+Rank 0 [Thu Feb 21 15:51:25 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:51:25 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:51:26 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:51:26 Apid 1416174: initiated application termination
+Rank 0 [Thu Feb 21 15:52:15 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:52:15 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:52:16 2013] PE RANK 0 exit signal Aborted
+[NID 00931] 2013-02-21 15:52:16 Apid 1416178: initiated application termination
+Rank 0 [Thu Feb 21 15:53:06 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:53:06 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:53:07 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:53:07 Apid 1416181: initiated application termination
+Rank 0 [Thu Feb 21 15:54:07 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:54:07 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:54:09 2013] PE RANK 0 exit signal Aborted
+[NID 00931] 2013-02-21 15:54:09 Apid 1416186: initiated application termination
+Rank 0 [Thu Feb 21 15:54:57 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:54:57 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:54:58 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:54:58 Apid 1416188: initiated application termination
+Rank 0 [Thu Feb 21 15:55:49 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab4db010, scnts=0x8e7630, displs=0x8e7520, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+Rank 1 [Thu Feb 21 15:55:49 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=(nil), scnts=0x8e6c50, displs=0x8e7810, MPI_CHAR, rbuf=(nil), rcount=-89934592, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -89934592
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:55:50 2013] PE RANK 1 exit signal Aborted
+[NID 00931] 2013-02-21 15:55:50 Apid 1416189: initiated application termination
+Rank 0 [Thu Feb 21 15:56:41 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:56:42 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 15:57:30 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:57:32 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 15:58:23 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:58:24 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 15:59:12 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 15:59:13 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 16:00:09 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 16:00:10 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 16:01:02 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 16:01:03 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 16:01:51 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 16:01:52 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 16:02:41 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 16:02:42 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 16:03:48 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 16:03:49 2013] PE RANK 0 exit signal Aborted
+Rank 0 [Thu Feb 21 16:04:40 2013] [c7-1c0s1n3] Fatal error in PMPI_Scatterv: Invalid count, error stack:
+PMPI_Scatterv(435): MPI_Scatterv(sbuf=0x2aaaab0b7010, scnts=0x8e70b0, displs=0x8e70d0, MPI_CHAR, rbuf=(nil), rcount=-179869184, MPI_CHAR, root=0, MPI_COMM_WORLD) failed
+PMPI_Scatterv(365): Negative count, value is -179869184
+_pmiu_daemon(SIGCHLD): [NID 00931] [c7-1c0s1n3] [Thu Feb 21 16:04:42 2013] PE RANK 0 exit signal Aborted

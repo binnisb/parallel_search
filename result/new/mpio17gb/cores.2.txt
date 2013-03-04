@@ -1,0 +1,70 @@
+cores:        2      run:    1
+LoadFile core 0: 0.000051
+LoadFile core 1: 0.000269
+Search core 0: 19.656991
+Search core 1: 19.657196
+The sum is 0
+Application 1416080 resources: utime ~38s, stime ~1s
+cores:        2      run:    2
+LoadFile core 0: 0.000056
+LoadFile core 1: 0.000312
+Search core 1: 19.648804
+Search core 0: 19.658553
+The sum is 0
+Application 1416082 resources: utime ~38s, stime ~1s
+cores:        2      run:    3
+LoadFile core 0: 0.000059
+LoadFile core 1: 0.000738
+Search core 0: 19.652532
+Search core 1: 19.656598
+The sum is 0
+Application 1416083 resources: utime ~38s, stime ~1s
+cores:        2      run:    4
+LoadFile core 0: 0.000050
+LoadFile core 1: 0.000272
+Search core 0: 19.657610
+Search core 1: 19.657520
+The sum is 0
+Application 1416084 resources: utime ~38s, stime ~1s
+cores:        2      run:    5
+LoadFile core 0: 0.000064
+LoadFile core 1: 0.000248
+Search core 1: 19.651280
+Search core 0: 19.652729
+The sum is 0
+Application 1416085 resources: utime ~38s, stime ~1s
+cores:        2      run:    6
+LoadFile core 1: 0.000058
+LoadFile core 0: 0.000244
+Search core 0: 19.651080
+Search core 1: 19.657288
+The sum is 0
+Application 1416086 resources: utime ~38s, stime ~1s
+cores:        2      run:    7
+LoadFile core 0: 0.000061
+LoadFile core 1: 0.000244
+Search core 1: 19.651618
+Search core 0: 19.657362
+The sum is 0
+Application 1416087 resources: utime ~38s, stime ~1s
+cores:        2      run:    8
+LoadFile core 0: 0.000054
+LoadFile core 1: 0.000242
+Search core 0: 19.651760
+Search core 1: 19.655190
+The sum is 0
+Application 1416090 resources: utime ~38s, stime ~1s
+cores:        2      run:    9
+LoadFile core 0: 0.000049
+LoadFile core 1: 0.000246
+Search core 1: 19.658234
+Search core 0: 19.661323
+The sum is 0
+Application 1416091 resources: utime ~38s, stime ~1s
+cores:        2      run:    10
+LoadFile core 1: 0.000064
+LoadFile core 0: 0.000242
+Search core 0: 19.662775
+Search core 1: 19.664133
+The sum is 0
+Application 1416093 resources: utime ~38s, stime ~1s
