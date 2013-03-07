@@ -19,7 +19,7 @@ class Stat:
         return "%s" %(self.id)
 
 #path = '../result/17gbfile/'
-path = '../result/mpio17gb/'
+path = '../result/new/mpi17gb/'
 a = os.listdir(path)
 stats = []
 for fs in a:
